@@ -1,0 +1,36 @@
+!! Transparency (0-1):
+*.alpha: 1
+
+!! Set a default font and font size as below:
+*.font: fira code nerd font:size=11
+
+! Custom
+*.foreground:    #EEEEEE
+*.background:    #020202
+*.cursorColor:   #EEEEEE
+*.highlightColor:#3A3F4B
+
+! Black and white
+*.color0:        #020202
+*.color8:        #eeeeee
+! Red
+*.color1:        #E06C75
+*.color9:        #E06C75
+! Green
+*.color2:        #98C379
+*.color10:       #98C379
+! Yellow
+*.color3:        #D19A66
+*.color11:       #D19A66
+! Blue
+*.color4:        #61AFEF
+*.color12:       #61AFEF
+! Magenta
+*.color5:        #C678DD
+*.color13:       #C678DD
+! Cyan
+*.color6:        #56B6C2
+*.color14:       #56B6C2
+! White
+*.color7:        #EEEEEE
+*.color15:       #FFFFFF
