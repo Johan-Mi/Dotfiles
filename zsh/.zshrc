@@ -17,6 +17,11 @@ alias clone="git clone"
 alias v="nvim"
 alias sudo="sudo "
 
+python() {
+	command python $@
+	rm ~/.python_history
+}
+
 bindkey -v '^?' backward-delete-char
 
 KEYTIMEOUT=5
