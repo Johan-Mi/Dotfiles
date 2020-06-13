@@ -6,25 +6,28 @@ cal plug#begin('~/.config/nvim/plugged')
 	Plug 'ericcurtin/CurtineIncSw.vim'
 	Plug 'joshdick/onedark.vim'
 	Plug 'ryanoasis/vim-devicons'
+	Plug 'inkarkat/vim-ingo-library'
+	Plug 'inkarkat/vim-IndentConsistencyCop'
+	Plug 'sbdchd/neoformat'
 cal plug#end()
 
 sy on
 colo onedark
 
 se nu rnu
-se ts=4
-se sw=4
+se ts=4 sw=4
 se so=7
 se ic
 se sb spr
-se tw=80
-se cc=+1
+se tw=80 cc=+1
 se cul cuc
+se list lcs=tab:│\ "Trailing space
 
 hi Normal		ctermbg=NONE
 hi colorcolumn	ctermbg=232
 hi CursorLine	ctermbg=233
 hi CursorColumn	ctermbg=233
+hi WhiteSpace	ctermfg=234
 
 com W w
 
@@ -36,37 +39,47 @@ ino <C-h>			<Left>
 ino <C-j>			<Down>
 ino <C-k>			<Up>
 ino <C-l>			<Right>
-ino <leader><TAB>	<TAB>
 ino <S-BS>			<BS>
 ino <C-b>			<C-k>
-nn j				gj
-nn k				gk
-vno j				gj
-vno k				gk
-nn ;				A;<Esc>
+nn ;				:cal AddSemicolon()<CR>
+nn !				:!
+nn ZW				:w<CR>
+nn §				@:
 
 nn <silent><leader>h	:nohl<CR>
-nn <leader>m			:!make<CR>
-nn <leader>n			:!make&&./main<CR>
+nn <leader>m			:!make -j4<CR>
+nn <leader>n			:!make -j4&&./main<CR>
 nn <leader>r			:!"%:p"<CR>
+nn <leader>f			m`gg=G``
+nn <leader>pyl			:!pylint "%:p"<CR>
 map <F5>				:cal CurtineIncSw()<CR>
 nn <C-n>				:NERDTreeToggle<CR>
 
-au BufWritePost Xresources		!xrdb "%:p"
-au BufRead *.kojo				se syntax=scala
+fu! AddSemicolon()
+	exe "normal! m`A;\<Esc>``"
+endf
 
-au BufRead *.py		se noexpandtab
-au BufRead *.py		se tabstop=4
-au BufRead *.py		se shiftwidth=4
+au BufWritePost Xresources	!xrdb "%:p"
+au BufRead *.kojo			se syn=scala
+au BufRead *.lark			se ft=lark syn=scilab
+au BufRead *.py				se et ts=4 sw=4
+au BufRead *.scratch		se ft=scratch syn=go
+au BufRead *.json			se ts=2
+aut BufWritePre *			cal RemoveTrailingWhitespace()
 
-au BufWritePre *				%s/\s\+$//e
+fu! RemoveTrailingWhitespace()
+	norm! m`
+	%s/\s\+$//e
+	norm! ``
+endf
+
+let g:neoformat_basic_format_retab=0
 
 " if hidden is not set, TextEdit might fail.
 se hid
 
 " Some servers have issues with backup files, see #649
-se nobk
-se nowb
+se nobk nowb
 
 " Better display for messages
 " set cmdheight=2
@@ -78,16 +91,16 @@ se ut=300
 " don't give |ins-completion-menu| messages.
 se shm+=c
 
-" always show signcolumns
-se scl=yes
+" never show signcolumns
+se scl=no
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure
 " tab is not mapped by other plugin.
 ino <silent><expr> <TAB>
-	  \ pumvisible() ? "\<C-n>" : "\<TAB>"
-	  " \ <SID>check_back_space() ? "\<TAB>" :
-	  " \ coc#refresh()
+	\ pumvisible() ? "\<C-n>" : "\<TAB>"
+	" \ <SID>check_back_space() ? "\<TAB>" :
+	" \ coc#refresh()
 ino <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 fu! s:check_back_space() abort
@@ -124,8 +137,8 @@ endf
 nmap <leader>Rn <Plug>(coc-rename)
 
 " Remap for format selected region
-xmap <leader>f	<Plug>(coc-format-selected)
-nmap <leader>f	<Plug>(coc-format-selected)
+" xmap <leader>f	<Plug>(coc-format-selected)
+" nmap <leader>f	<Plug>(coc-format-selected)
 
 aug mygroup
 	au!

@@ -35,6 +35,7 @@ cmd open ${{
     case $(file --mime-type $f -b) in
         text/*) nvim $fx;;
 		image/*) sxiv $fx;;
+		application/pdf) zathura $fx;;
 		*) $EDITOR $fx;;
     esac
 }}
@@ -85,14 +86,17 @@ map r push :open-with<space>
 map R rename
 
 map gr cd /
-map gu cd /usr/
+map gus cd /usr/share/
+map gub cd /usr/bin/
+map guo cd /usr/local/
+map gui cd /usr/include/
 map gb cd /bin/
 map gs cd /sys/
 map go cd ~/.config/
 map ge cd /etc/
 map gxu cd /usr/share/X11/
 
-map <lt> :cut; updir; paste; open
+map <lt><lt> :cut; updir; paste; open
 
 #set hidden true
 set drawbox true
@@ -101,5 +105,6 @@ set info size
 set dircounts true
 set ratios "1:3:4"
 set tabstop 4
+set previewer /usr/bin/pistol
 
 reload

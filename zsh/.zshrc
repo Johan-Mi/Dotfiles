@@ -2,6 +2,7 @@ stty -ixon
 
 setopt autocd
 setopt prompt_subst
+set -B
 
 source ~/Repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -9,18 +10,14 @@ zstyle ':completion:*' completer _expand _complete _ignored
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 autoload -Uz compinit && compinit -i
 
-alias ls="lsd -1A"
-alias l="lsd -1A"
+alias ls="lsd -1A --group-dirs first"
+alias sl="lsd -1A --group-dirs first"
+alias l="lsd -1A --group-dirs first"
 alias ka="killall"
 alias gs="git status"
 alias clone="git clone"
 alias v="nvim"
 alias sudo="sudo "
-
-python() {
-	command python $@
-	rm ~/.python_history
-}
 
 bindkey -v '^?' backward-delete-char
 
@@ -49,4 +46,6 @@ lazygit() {
 	&& PS1=$'$(zle-keymap-select)\e[1m%~ \e[92m>\e[0m ' \
 	|| PS1=$'$(zle-keymap-select)\e[1m%~ \e[92m❯\e[0m '
 
-[ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ] && startx
+cat ~/.config/TODO
+
+[ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ] && startx 2>/dev/null>/dev/null

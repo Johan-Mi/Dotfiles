@@ -2,7 +2,7 @@
 *.alpha: 1
 
 !! Set a default font and font size as below:
-*.font: fira code nerd font:size=11
+*.font: fira code nerd font:size=10
 
 ! Custom
 *.foreground:    #EEEEEE

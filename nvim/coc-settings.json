@@ -20,6 +20,18 @@
 					"directory": "/tmp/ccls"
 				}
 			}
+		},
+		"pyls": {
+			"command": "pyls",
+			"filetypes": [
+					"py"
+			],
+			"rootPatterns": [
+				".vim/",
+				".git/",
+				".hg/"
+			],
+			"initializationOptions": {}
 		}
 	}
 }
