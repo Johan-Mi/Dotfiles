@@ -15,24 +15,24 @@ alias sl="lsd -1A --group-dirs first"
 alias l="lsd -1A --group-dirs first"
 alias ka="killall"
 alias gs="git status"
+alias gd="git diff"
 alias clone="git clone"
 alias v="nvim"
 alias sudo="sudo "
 
-bindkey -v '^?' backward-delete-char
+bindkey -v "^?" backward-delete-char
 
 KEYTIMEOUT=5
 
 zle-keymap-select() {
-	if [[ ${KEYMAP} == vicmd ]] \
-		|| [[ $1 = 'block' ]]; then
-		printf '\e[1 q'
-	elif [[ ${KEYMAP} == main ]] \
+	([[ ${KEYMAP} == vicmd ]] \
+		|| [[ $1 = 'block' ]] \
+		&& printf '\e[1 q'
+	) || ([[ ${KEYMAP} == main ]] \
 		|| [[ ${KEYMAP} == viins ]] \
 		|| [[ ${KEYMAP} = '' ]] \
-		|| [[ $1 = 'beam' ]]; then
-		printf '\e[5 q'
-	fi
+		|| [[ $1 = 'beam' ]] \
+		&& printf '\e[5 q')
 }
 zle -N zle-keymap-select
 
@@ -48,4 +48,6 @@ lazygit() {
 
 cat ~/.config/TODO
 
-[ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ] && startx 2>/dev/null>/dev/null
+[ -z $DISPLAY ] \
+	&& [ $(tty) = /dev/tty1 ] \
+	&& startx 2>/dev/null>/dev/null

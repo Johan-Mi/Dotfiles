@@ -24,10 +24,10 @@ se cul cuc
 se list lcs=tab:│\ "Trailing space
 
 hi Normal		ctermbg=NONE
-hi colorcolumn	ctermbg=232
-hi CursorLine	ctermbg=233
-hi CursorColumn	ctermbg=233
-hi WhiteSpace	ctermfg=234
+hi colorcolumn	ctermbg=232 guibg=#080808
+hi CursorLine	ctermbg=233 guibg=#121212
+hi CursorColumn	ctermbg=233 guibg=#121212
+hi WhiteSpace	ctermfg=234 guifg=#1A1A1A
 
 com W w
 
@@ -39,21 +39,40 @@ ino <C-h>			<Left>
 ino <C-j>			<Down>
 ino <C-k>			<Up>
 ino <C-l>			<Right>
+nn <C-h>			<C-w>h
+nn <C-j>			<C-w>j
+nn <C-k>			<C-w>k
+nn <C-l>			<C-w>l
 ino <S-BS>			<BS>
 ino <C-b>			<C-k>
-nn ;				:cal AddSemicolon()<CR>
+nn <silent>;		:cal AddSemicolon()<CR>
 nn !				:!
 nn ZW				:w<CR>
 nn §				@:
+map <kLeft>			<Left>
+map <kDown>			<Down>
+map <kUp>			<Up>
+map <kRight>		<Right>
+im <kLeft>			<Left>
+im <kDown>			<Down>
+im <kUp>			<Up>
+im <kRight>			<Right>
+xm <kLeft>			<Left>
+xm <kDown>			<Down>
+xm <kUp>			<Up>
+xm <kRight>			<Right>
+smap <kLeft>		<Left>
+smap <kDown>		<Down>
+smap <kUp>			<Up>
+smap <kRight>		<Right>
 
 nn <silent><leader>h	:nohl<CR>
-nn <leader>m			:!make -j4<CR>
-nn <leader>n			:!make -j4&&./main<CR>
+nn <leader>m			:!make<CR>
+nn <leader>n			:!make&&./main<CR>
 nn <leader>r			:!"%:p"<CR>
-nn <leader>f			m`gg=G``
+nn <silent><leader>fpy	:!yapf -i "%:p"<CR>
 nn <leader>pyl			:!pylint "%:p"<CR>
-map <F5>				:cal CurtineIncSw()<CR>
-nn <C-n>				:NERDTreeToggle<CR>
+nn <silent><C-n>		:NERDTreeToggle<CR>
 
 fu! AddSemicolon()
 	exe "normal! m`A;\<Esc>``"
@@ -61,9 +80,10 @@ endf
 
 au BufWritePost Xresources	!xrdb "%:p"
 au BufRead *.kojo			se syn=scala
-au BufRead *.lark			se ft=lark syn=scilab
+au BufRead *.list			se syn=dosini
+au BufRead *.lark			se ft=lark syn=scilab noet ts=4 sw=4
 au BufRead *.py				se et ts=4 sw=4
-au BufRead *.scratch		se ft=scratch syn=go
+au BufRead *.scratch		se ft=scratch syn=python noet
 au BufRead *.json			se ts=2
 aut BufWritePre *			cal RemoveTrailingWhitespace()
 

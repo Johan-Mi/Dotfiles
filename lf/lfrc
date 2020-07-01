@@ -48,7 +48,7 @@ cmd extract ${{
         *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
         *.tar.gz|*.tgz) tar xzvf $f;;
         *.tar.xz|*.txz) tar xJvf $f;;
-        *.zip) unzip $f;;
+        *.zip|*.sb3) unzip $f;;
         *.rar) unrar x $f;;
         *.7z) 7z x $f;;
     esac
@@ -78,33 +78,37 @@ cmd open-with ${{
 
 map J half-down
 map K half-up
-map o &xdg-open $f
 map d
 map dD delete
 map dd cut
 map r push :open-with<space>
 map R rename
+map i $~/.local/bin/preview $f | less -R
 
 map gr cd /
 map gus cd /usr/share/
 map gub cd /usr/bin/
 map guo cd /usr/local/
 map gui cd /usr/include/
+map guu cd /usr/
 map gb cd /bin/
 map gs cd /sys/
 map go cd ~/.config/
 map ge cd /etc/
+map gl cd /lib/
 map gxu cd /usr/share/X11/
+map gxo cd ~/.config/X11/
 
 map <lt><lt> :cut; updir; paste; open
 
 #set hidden true
-set drawbox true
+# set drawbox
 set icons true
 set info size
 set dircounts true
 set ratios "1:3:4"
 set tabstop 4
 set previewer /usr/bin/pistol
+set promptfmt "\033[34;1m%w/\033[0m\033[1m%f\033[0m"
 
 reload
