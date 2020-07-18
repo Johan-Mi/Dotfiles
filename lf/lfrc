@@ -83,12 +83,12 @@ map dD delete
 map dd cut
 map r push :open-with<space>
 map R rename
-map i $~/.local/bin/preview $f | less -R
+map i $pistol $f | less -R
 
 map gr cd /
 map gus cd /usr/share/
 map gub cd /usr/bin/
-map guo cd /usr/local/
+map gul cd /usr/local/
 map gui cd /usr/include/
 map guu cd /usr/
 map gb cd /bin/

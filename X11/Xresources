@@ -7,7 +7,7 @@
 ! Custom
 *.foreground:    #EEEEEE
 *.background:    #020202
-*.cursorColor:   #EEEEEE
+*.cursorColor:   #61AFEF
 *.highlightColor:#3A3F4B
 
 ! Black and white

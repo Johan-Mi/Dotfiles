@@ -11,8 +11,33 @@ cal plug#begin('~/.config/nvim/plugged')
 	Plug 'sbdchd/neoformat'
 cal plug#end()
 
+let g:neoformat_basic_format_retab=0
+
+let g:lightline = {
+	\ 'colorscheme': 'modeline',
+	\ 'subseparator': { 'left': '', 'right': '' },
+	\ 'active': {
+	\ 	'left': [ [ 'mode', 'paste' ],
+	\ 	          [ 'readonly' ],
+	\             [ 'filename', 'modified'],
+	\ 	          [ 'lineinfo', 'percent' ] ],
+	\ 	'right': [ [ 'filetype' ],
+	\ 	           [ 'fileformat', 'fileencoding' ] ]
+	\ 	},
+	\ 'component': {
+	\	'fileformat': '%{&ff=="unix"?"LF":&ff=="dos"?"CRLF":"CR"}',
+	\	'readonly': '%{&readonly?"":""}'
+	\	},
+	\ 'mode_map': {
+	\	'n' : '', 'i' : '', 'R' : '', 'v' : '', 'V' : '', "\<C-v>": '',
+	\	'c' : '', 's' : '', 'S' : '', "\<C-s>": '', 't': '',
+	\	},
+	\ }
+let g:lightline.inactive = g:lightline.active
+
 sy on
 colo onedark
+se tgc
 
 se nu rnu
 se ts=4 sw=4
@@ -20,19 +45,34 @@ se so=7
 se ic
 se sb spr
 se tw=80 cc=+1
-se cul cuc
+se cul
+se nohls
 se list lcs=tab:│\ "Trailing space
 
-hi Normal		ctermbg=NONE
-hi colorcolumn	ctermbg=232 guibg=#080808
-hi CursorLine	ctermbg=233 guibg=#121212
-hi CursorColumn	ctermbg=233 guibg=#121212
-hi WhiteSpace	ctermfg=234 guifg=#1A1A1A
+se hid
+se nobk nowb
+se ut=300
+se shm+=c
+se scl=no
+
+hi colorcolumn	ctermbg=232	guibg=#080808
+hi CursorLine	ctermbg=233	guibg=#0e0e0e
+hi CursorColumn	ctermbg=233	guibg=#0e0e0e
+hi CursorLineNr	ctermbg=233	guibg=#0e0e0e
+hi WhiteSpace	ctermfg=234	guifg=#1a1a1a
+
+hi Function		ctermfg=170	guifg=#C678DD
+hi Statement	ctermfg=39	guifg=#61AFEF
+hi Repeat		ctermfg=39	guifg=#61AFEF
+hi Operator		ctermfg=39	guifg=#61AFEF
+hi Conditional	ctermfg=39	guifg=#61AFEF
+hi Number		gui=bold
 
 com W w
 
-let mapleader=","
+let mapleader=" "
 
+nn <Space>			§
 ino jk				<Esc>
 ino kj				<Esc>
 ino <C-h>			<Left>
@@ -47,7 +87,7 @@ ino <S-BS>			<BS>
 ino <C-b>			<C-k>
 nn <silent>;		:cal AddSemicolon()<CR>
 nn !				:!
-nn ZW				:w<CR>
+nn <leader>fs		:w<CR>
 nn §				@:
 map <kLeft>			<Left>
 map <kDown>			<Down>
@@ -66,17 +106,37 @@ smap <kDown>		<Down>
 smap <kUp>			<Up>
 smap <kRight>		<Right>
 
-nn <silent><leader>h	:nohl<CR>
-nn <leader>m			:!make<CR>
+nn <leader>cc			:!make<CR>
 nn <leader>n			:!make&&./main<CR>
 nn <leader>r			:!"%:p"<CR>
-nn <silent><leader>fpy	:!yapf -i "%:p"<CR>
+nn <leader>qq			:xa<CR>
+nn <leader>qQ			:qa!<CR>
+nn <leader>tr			:se ro!<CR>
+nn <leader>cf			:Neoformat<CR>
 nn <leader>pyl			:!pylint "%:p"<CR>
 nn <silent><C-n>		:NERDTreeToggle<CR>
 
-fu! AddSemicolon()
-	exe "normal! m`A;\<Esc>``"
-endf
+ino <silent><expr> <c-space> coc#refresh()
+ino <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+nm <silent>cd <Plug>(coc-definition)
+" nm <silent> gy <Plug>(coc-type-definition)
+" nm <silent> gi <Plug>(coc-implementation)
+nm <silent>cD <Plug>(coc-references)
+nn <silent> K :cal <SID>show_documentation()<CR>
+
+nmap <leader>cr <Plug>(coc-rename)
+" xmap <leader>f	<Plug>(coc-format-selected)
+" nmap <leader>f	<Plug>(coc-format-selected)
+xm <leader>a	<Plug>(coc-codeaction-selected)
+nm <leader>a	<Plug>(coc-codeaction-selected)
+nm <leader>ac  <Plug>(coc-codeaction)
+nm <leader>qf  <Plug>(coc-fix-current)
+
+ino <silent><expr> <TAB>
+	\ pumvisible() ? "\<C-n>" : "\<TAB>"
+	" \ <SID>check_back_space() ? "\<TAB>" :
+	" \ coc#refresh()
+ino <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 au BufWritePost Xresources	!xrdb "%:p"
 au BufRead *.kojo			se syn=scala
@@ -85,7 +145,11 @@ au BufRead *.lark			se ft=lark syn=scilab noet ts=4 sw=4
 au BufRead *.py				se et ts=4 sw=4
 au BufRead *.scratch		se ft=scratch syn=python noet
 au BufRead *.json			se ts=2
-aut BufWritePre *			cal RemoveTrailingWhitespace()
+au BufWritePre *			cal RemoveTrailingWhitespace()
+
+fu! AddSemicolon()
+	exe "normal! m`A;\<Esc>``"
+endf
 
 fu! RemoveTrailingWhitespace()
 	norm! m`
@@ -93,57 +157,10 @@ fu! RemoveTrailingWhitespace()
 	norm! ``
 endf
 
-let g:neoformat_basic_format_retab=0
-
-" if hidden is not set, TextEdit might fail.
-se hid
-
-" Some servers have issues with backup files, see #649
-se nobk nowb
-
-" Better display for messages
-" set cmdheight=2
-
-" You will have bad experience for diagnostic messages
-" when it's default 4000.
-se ut=300
-
-" don't give |ins-completion-menu| messages.
-se shm+=c
-
-" never show signcolumns
-se scl=no
-
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure
-" tab is not mapped by other plugin.
-ino <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" : "\<TAB>"
-	" \ <SID>check_back_space() ? "\<TAB>" :
-	" \ coc#refresh()
-ino <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
 fu! s:check_back_space() abort
 	let col = col('.') - 1
 	retu !col || getline('.')[col - 1]  =~# '\s'
 endf
-
-" Use <c-space> to trigger completion.
-ino <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain
-" at current position.
-" Coc only does snippet and additional edit on confirm.
-ino <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Remap keys for gotos
-nm <silent> gd <Plug>(coc-definition)
-nm <silent> gy <Plug>(coc-type-definition)
-nm <silent> gi <Plug>(coc-implementation)
-nm <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window
-nn <silent> K :cal <SID>show_documentation()<CR>
 
 fu! s:show_documentation()
 	if (index(['vim','help'], &filetype) >= 0)
@@ -153,13 +170,6 @@ fu! s:show_documentation()
 	endif
 endf
 
-" Remap for rename current word
-nmap <leader>Rn <Plug>(coc-rename)
-
-" Remap for format selected region
-" xmap <leader>f	<Plug>(coc-format-selected)
-" nmap <leader>f	<Plug>(coc-format-selected)
-
 aug mygroup
 	au!
 	" Setup formatexpr specified filetype(s).
@@ -168,22 +178,6 @@ aug mygroup
 	" Update signature help on jump placeholder
 	au User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 aug end
-
-" Remap for do codeAction of selected region,
-" ex: `<leader>aap` for current paragraph
-xm <leader>a	<Plug>(coc-codeaction-selected)
-nm <leader>a	<Plug>(coc-codeaction-selected)
-
-" Remap for do codeAction of current line
-nm <leader>ac  <Plug>(coc-codeaction)
-" Fix autofix problem of current line
-nm <leader>qf  <Plug>(coc-fix-current)
-
-" Use <tab> for select selections ranges, needs server support,
-" like: coc-tsserver, coc-python
-nm <silent> <TAB> <Plug>(coc-range-select)
-xm <silent> <TAB> <Plug>(coc-range-select)
-xm <silent> <S-TAB> <Plug>(coc-range-select-backword)
 
 " Use `:Format` to format current buffer
 com! -nargs=0 Format :cal CocAction('format')
