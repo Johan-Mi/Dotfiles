@@ -15,7 +15,7 @@ alias ka='killall'
 alias gs='git status'
 alias gd='git diff'
 alias clone='git clone'
-alias v='nvim'
+alias v='nvim -p'
 alias sudo='sudo '
 
 alias maek='make'; alias mkae='make'; alias mkea='make'; alias meak='make';
@@ -26,6 +26,7 @@ alias keam='make'; alias emak='make'; alias emka='make'; alias eamk='make';
 alias eakm='make'; alias ekma='make'; alias ekam='make';
 
 bindkey -v '^?' backward-delete-char
+bindkey -v '^[[P' delete-char
 
 KEYTIMEOUT=5
 
@@ -51,4 +52,4 @@ PS1='%F{black}%K{blue} %~ %F{blue}%k%f%k '
 
 [ -z $DISPLAY ] \
 	&& [ $(tty) = /dev/tty1 ] \
-	&& (clear; startx 2>/dev/null>/dev/null)
+	&& startx 2>/dev/null>/dev/null
