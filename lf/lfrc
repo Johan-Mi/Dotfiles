@@ -33,10 +33,10 @@ map X !$f
 # text files and a file opener for the rest.
 cmd open ${{
     case $(file --mime-type $f -b) in
-        text/*) nvim $fx;;
-		image/*) sxiv $fx;;
-		application/pdf) zathura $fx;;
-		*) $EDITOR $fx;;
+        text/*) nvim $fx ;;
+		image/*) sxiv $fx ;;
+		application/pdf) zathura $fx ;;
+		*) $EDITOR $fx ;;
     esac
 }}
 
@@ -48,7 +48,7 @@ cmd extract ${{
         *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
         *.tar.gz|*.tgz) tar xzvf $f;;
         *.tar.xz|*.txz) tar xJvf $f;;
-        *.zip|*.sb3) unzip $f;;
+   *.zip|*.sb3) unzip $f;;
         *.rar) unrar x $f;;
         *.7z) 7z x $f;;
     esac

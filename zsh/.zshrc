@@ -8,25 +8,21 @@ zstyle ':completion:*' completer _expand _complete _ignored
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 autoload -Uz compinit && compinit -i
 
-alias ls='lsd -1A --group-dirs first'
-alias sl='lsd -1A --group-dirs first'
-alias l='lsd -1A --group-dirs first'
+alias ls='lsd -lA --blocks=size,name' sl='ls' l='ls'
 alias ka='killall'
 alias gs='git status'
 alias gd='git diff'
+alias gg='git grep'
 alias clone='git clone'
 alias v='nvim -p'
 alias sudo='sudo '
 
-alias maek='make'; alias mkae='make'; alias mkea='make'; alias meak='make';
-alias meka='make'; alias amke='make'; alias amek='make'; alias akme='make';
-alias akem='make'; alias aemk='make'; alias aekm='make'; alias kmae='make';
-alias kmea='make'; alias kame='make'; alias kaem='make'; alias kema='make';
-alias keam='make'; alias emak='make'; alias emka='make'; alias eamk='make';
-alias eakm='make'; alias ekma='make'; alias ekam='make';
+alias maek='make' mkae='make' mkea='make' meak='make' meka='make' amke='make' \
+	amek='make' akme='make' akem='make' aemk='make' aekm='make' kmae='make' \
+	kmea='make' kame='make' kaem='make' kema='make' keam='make' emak='make' \
+	emka='make' eamk='make' eakm='make' ekma='make' ekam='make'
 
-bindkey -v '^?' backward-delete-char
-bindkey -v '^[[P' delete-char
+bindkey -v '^?' backward-delete-char '^[[P' delete-char
 
 KEYTIMEOUT=5
 
@@ -52,4 +48,4 @@ PS1='%F{black}%K{blue} %~ %F{blue}%k%f%k '
 
 [ -z $DISPLAY ] \
 	&& [ $(tty) = /dev/tty1 ] \
-	&& startx 2>/dev/null>/dev/null
+	&& exec startx 2>/dev/null>/dev/null

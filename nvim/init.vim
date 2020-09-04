@@ -3,8 +3,6 @@ cal plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-commentary'
 	Plug 'itchyny/lightline.vim'
 	Plug 'joshdick/onedark.vim'
-	Plug 'inkarkat/vim-ingo-library'
-	Plug 'inkarkat/vim-IndentConsistencyCop'
 	Plug 'sbdchd/neoformat'
 cal plug#end()
 
@@ -56,19 +54,15 @@ se scl=no
 
 hi colorcolumn	ctermbg=232	guibg=#080808
 hi CursorLine	ctermbg=233	guibg=#0e0e0e
-hi CursorColumn	ctermbg=233	guibg=#0e0e0e
 hi CursorLineNr	ctermbg=233	guibg=#0e0e0e
 hi WhiteSpace	ctermfg=234	guifg=#1a1a1a
-hi Normal		guibg=none
-
+hi StatusLine	guibg=#0b0b0b
 hi Function		ctermfg=170	guifg=#C678DD
 hi Statement	ctermfg=39	guifg=#61AFEF
 hi Repeat		ctermfg=39	guifg=#61AFEF
 hi Operator		ctermfg=39	guifg=#61AFEF
 hi Conditional	ctermfg=39	guifg=#61AFEF
 hi Number		gui=bold
-
-com W w
 
 let mapleader=" "
 
@@ -88,32 +82,29 @@ ino <C-b>					<C-k>
 nn <silent>;				m`A;<Esc>``
 nn !						:!
 nn §						@:
-ino {<CR>					{<CR>}<C-o>O
 nn g<						<CMD>tabm -<CR>
 nn g>						<CMD>tabm +<CR>
+nn <TAB>					gt
+nn <s-TAB>					gT
 
 nn <leader>fs				<CMD>w<CR>
 nn <leader>cc				<CMD>!make<CR>
+nn <silent><leader>cl		<CMD>silent !make clean<CR>
 nn <leader>n				<CMD>!make&&./main<CR>
 nn <leader>r				<CMD>!"%:p"<CR>
 nn <leader>qq				<CMD>xa<CR>
 nn <leader>qQ				<CMD>qa!<CR>
-nn <silent><leader>tr		<CMD>se ro!<CR>
 nn <leader>cf				<CMD>Neoformat<CR>
 nn <leader>pyl				<CMD>!pylint "%:p"<CR>
-
+nn <leader>tt				:tabe<Space>
+nn <leader>gg				<CMD>exe '!git grep '.expand('<cword>')<cr>
 ino <silent><expr><c-space>	coc#refresh()
 ino <expr><cr>				pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-nm <silent>cd				<Plug>(coc-definition)
-nm <silent>cD				<Plug>(coc-references)
-nn <silent> K				<CMD>cal <SID>show_documentation()<CR>
-
+nm <silent><leader>cd		<Plug>(coc-definition)
+nm <silent><leader>cD		<Plug>(coc-references)
+nn <silent>K				<CMD>cal <SID>show_documentation()<CR>
 nm <leader>cr				<Plug>(coc-rename)
-xm <leader>a				<Plug>(coc-codeaction-selected)
-nm <leader>a				<Plug>(coc-codeaction-selected)
-nm <leader>ac				<Plug>(coc-codeaction)
-nm <leader>qf				<Plug>(coc-fix-current)
-
+nore <space><space>			:
 ino <silent><expr><TAB>		pumvisible() ? "\<C-n>" : "\<TAB>"
 ino <expr><S-TAB>			pumvisible() ? "\<C-p>" : "\<C-h>"
 
