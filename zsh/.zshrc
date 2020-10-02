@@ -16,6 +16,10 @@ alias gg='git grep'
 alias clone='git clone'
 alias v='nvim -p'
 alias sudo='sudo '
+alias cr='cargo run'
+alias crr='cargo run --release'
+alias cb='cargo build'
+alias cbr='cargo build --release'
 
 alias maek='make' mkae='make' mkea='make' meak='make' meka='make' amke='make' \
 	amek='make' akme='make' akem='make' aemk='make' aekm='make' kmae='make' \
@@ -37,6 +41,10 @@ zle-keymap-select() {
 		&& printf '\e[5 q')
 }
 zle -N zle-keymap-select
+
+precmd() {
+	printf '\e[5 q'
+}
 
 lazygit() {
 	git add .

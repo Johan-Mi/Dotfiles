@@ -12,7 +12,7 @@
 
 ! Black and white
 *.color0:        #020202
-*.color8:        #eeeeee
+*.color8:        #EEEEEE
 ! Red
 *.color1:        #E06C75
 *.color9:        #E06C75
