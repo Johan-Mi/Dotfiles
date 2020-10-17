@@ -46,6 +46,7 @@ se cul cuc
 se nohls
 se list lcs=tab:│\ "Trailing space
 se fo-=t
+se cb=unnamedplus
 
 se hid
 se nobk nowb
@@ -64,7 +65,6 @@ hi Statement	ctermfg=39	guifg=#61AFEF
 hi Repeat		ctermfg=39	guifg=#61AFEF
 hi Operator		ctermfg=39	guifg=#61AFEF
 hi Conditional	ctermfg=39	guifg=#61AFEF
-hi Number		gui=bold
 hi Pmenu		guibg=#121212
 
 let mapleader=" "
@@ -99,8 +99,10 @@ nn <leader>r				<CMD>!"%:p"<CR>
 nn <leader>qq				<CMD>xa<CR>
 nn <leader>qQ				<CMD>qa!<CR>
 nn <leader>cf				<CMD>Neoformat<CR>
+nn <leader>cF				<CMD>cal CocAction("format")<CR>
 nn <leader>tt				:tabe<Space>
 nn <leader>gg				<CMD>exe '!git grep '.expand('<cword>')<cr>
+nn <leader>qf				<CMD>CocFix<CR>
 ino <silent><expr><c-space>	coc#refresh()
 ino <expr><cr>				pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 nm <silent><leader>cd		<Plug>(coc-definition)
