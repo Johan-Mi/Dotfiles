@@ -2,7 +2,7 @@ stty -ixon
 
 set -J -B
 
-source ~/Repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 zstyle ':completion:*' completer _expand _complete _ignored
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -15,11 +15,12 @@ alias gd='git diff'
 alias gg='git grep'
 alias clone='git clone'
 alias v='nvim -p'
-alias sudo='sudo '
+# alias sudo='sudo '
 alias cr='cargo run'
 alias crr='cargo run --release'
 alias cb='cargo build'
 alias cbr='cargo build --release'
+alias c='cargo'
 
 alias maek='make' mkae='make' mkea='make' meak='make' meka='make' amke='make' \
 	amek='make' akme='make' akem='make' aemk='make' aekm='make' kmae='make' \
