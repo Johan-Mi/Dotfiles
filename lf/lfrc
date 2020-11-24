@@ -101,8 +101,6 @@ map gxo cd ~/.config/X11/
 
 map <lt><lt> :cut; updir; paste; open
 
-#set hidden true
-# set drawbox
 set icons true
 set info size
 set dircounts true

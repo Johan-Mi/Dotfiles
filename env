@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PATH=$PATH:"$HOME/.local/bin":"$HOME/.local/share/npm/bin":"$HOME/.local/share/cargo/bin"
+PATH=$PATH:"$HOME/.local/bin":"$HOME/.local/share/cargo/bin"
 
 export EDITOR='nvim'
 export VISUAL='nvim'

@@ -15,7 +15,7 @@ alias gd='git diff'
 alias gg='git grep'
 alias clone='git clone'
 alias v='nvim -p'
-# alias sudo='sudo '
+alias sudo='sudo '
 alias cr='cargo run'
 alias crr='cargo run --release'
 alias cb='cargo build'
@@ -32,14 +32,14 @@ bindkey -v '^?' backward-delete-char '^[[P' delete-char
 KEYTIMEOUT=5
 
 zle-keymap-select() {
-	([ "$KEYMAP" = vicmd ] \
+	{[ "$KEYMAP" = vicmd ] \
 		|| [ "$1" = block ] \
 		&& printf '\e[1 q'
-	) || ([ "$KEYMAP" = main ] \
+	} || {[ "$KEYMAP" = main ] \
 		|| [ "$KEYMAP" = viins ] \
 		|| [ "$KEYMAP" = '' ] \
 		|| [ "$1" = beam ] \
-		&& printf '\e[5 q')
+		&& printf '\e[5 q'}
 }
 zle -N zle-keymap-select
 
@@ -57,4 +57,4 @@ PS1='%F{black}%K{blue} %~ %F{blue}%k%f%k '
 
 [ -z $DISPLAY ] \
 	&& [ $(tty) = /dev/tty1 ] \
-	&& exec startx 2>/dev/null>/dev/null
+	&& exec startx

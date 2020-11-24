@@ -21,14 +21,14 @@ let g:lightline = {
 	\ 	           [ 'fileformat', 'fileencoding' ] ]
 	\ 	},
 	\ 'component': {
-	\	'fileformat': '%{&ff=="unix"?"LF":&ff=="dos"?"CRLF":"CR"}',
-	\	'percent': '%P',
-	\	'readonly': '%{&readonly?"":""}'
-	\	},
+	\ 	'fileformat': '%{&ff=="unix"?"LF":&ff=="dos"?"CRLF":"CR"}',
+	\ 	'percent': '%P',
+	\ 	'readonly': '%{&readonly?"":""}'
+	\ 	},
 	\ 'mode_map': {
-	\	'n' : '', 'i' : '', 'R' : '', 'v' : '', 'V' : '', "\<C-v>": '',
-	\	'c' : '', 's' : '', 'S' : '', "\<C-s>": '', 't': '',
-	\	},
+	\ 	'n' : '', 'i' : '', 'R' : '', 'v' : '', 'V' : '', "\<C-v>": '',
+	\ 	'c' : '', 's' : '', 'S' : '', "\<C-s>": '', 't': '',
+	\ 	},
 	\ }
 let g:lightline.inactive = g:lightline.active
 
@@ -43,7 +43,7 @@ set smartcase nohlsearch
 set splitbelow splitright
 set textwidth=80 colorcolumn=+1
 set cursorline cursorcolumn
-set list listchars=tab:│\ "Trailing space
+set list listchars=tab:¦\ "Trailing space
 set formatoptions-=t
 set clipboard=unnamedplus
 
@@ -56,13 +56,8 @@ highlight colorcolumn	ctermbg=232	guibg=#080808
 highlight CursorLine	ctermbg=233	guibg=#0e0e0e
 highlight CursorColumn	ctermbg=233	guibg=#0e0e0e
 highlight CursorLineNr	ctermbg=233	guibg=#0e0e0e
-highlight WhiteSpace	ctermfg=234	guifg=#1a1a1a
+highlight WhiteSpace	ctermfg=234	guifg=#303030
 highlight StatusLine				guibg=#0b0b0b
-highlight Function		ctermfg=170	guifg=#C678DD
-highlight Statement		ctermfg=39	guifg=#61AFEF
-highlight Repeat		ctermfg=39	guifg=#61AFEF
-highlight Operator		ctermfg=39	guifg=#61AFEF
-highlight Conditional	ctermfg=39	guifg=#61AFEF
 highlight Pmenu						guibg=#121212
 
 let mapleader=" "
