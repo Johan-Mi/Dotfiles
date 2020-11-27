@@ -91,7 +91,10 @@ nn <leader>cf				<CMD>Neoformat<CR>
 nn <leader>cF				<CMD>call CocAction("format")<CR>
 nn <leader>tt				:tabe<Space>
 nn <leader>gg				<CMD>execute '!git grep' expand('<cword>')<cr>
+nn <leader>uw				m`dwxf>x``
+nn <leader>uW				m`dwr&f>x``
 nn <leader>qf				<CMD>CocFix<CR>
+nn <leader>l				<CMD>!cargo clippy<CR>
 ino <silent><expr><c-space>	coc#refresh()
 ino <expr><cr>				pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 nm <silent><leader>cd		<Plug>(coc-definition)
@@ -106,6 +109,7 @@ autocmd BufWritePost Xresources	!xrdb "%:p"
 autocmd BufRead *.py			set expandtab tabstop=4 shiftwidth=4
 autocmd BufRead *.json			set tabstop=2
 autocmd BufWritePre *.rs		Neoformat
+autocmd BufRead *.lalrpop		setf rust
 
 function! s:show_documentation()
 	if (index(['vim','help'], &filetype) >= 0)
