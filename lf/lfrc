@@ -84,6 +84,7 @@ map dd cut
 map r push :open-with<space>
 map R rename
 map i $pistol $f | less -R
+map S $strip -s $f
 
 map gr cd /
 map gus cd /usr/share/
