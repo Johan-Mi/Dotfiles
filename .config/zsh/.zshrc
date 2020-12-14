@@ -8,7 +8,7 @@ zstyle ':completion:*' completer _expand _complete _ignored
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 autoload -Uz compinit && compinit -i
 
-alias ls='lsd -lA --blocks=size,name' sl='ls' l='ls'
+alias ls='ls -1Av --color=auto' sl='ls' l='ls'
 alias ka='killall'
 alias gs='git status'
 alias gd='git diff'
