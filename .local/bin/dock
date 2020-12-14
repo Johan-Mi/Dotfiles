@@ -1,0 +1,4 @@
+#!/bin/sh
+
+xrandr --auto && xrandr --output eDP-1 --off
+xwallpaper --zoom ~/.config/wall.png

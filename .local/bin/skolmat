@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+
+from urllib import request
+from datetime import date, datetime, timedelta
+from bs4 import BeautifulSoup
+
+while True:
+    try:
+        content = request.urlopen("https://skolmaten.se/vikingaskolan3/").read()
+        break
+    except:
+        pass
+
+soup = BeautifulSoup(content, "html.parser")
+dates = [d.text for d in soup.find_all("span", attrs={"class": "date"})]
+currDate = date.today()
+if datetime.now().hour + (datetime.now().minute > 30) >= 13:
+    currDate += timedelta(days=1)
+currDate = currDate.strftime("%Y-%m-%d")
+if currDate in dates:
+    dish = soup.find_all("div", attrs={"class": "items"})[dates.index(currDate)]
+    print(dish.find().find().text)
+else:
+    print("Helg")

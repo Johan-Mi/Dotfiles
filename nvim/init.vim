@@ -74,8 +74,8 @@ ino <C-b>					<C-k>
 nn <silent>;				m`A;<Esc>``
 nn !						:!
 nn §						@:
-nn g<						<CMD>tabmmove -<CR>
-nn g>						<CMD>tabmmove +<CR>
+nn g<						<CMD>tabmove -<CR>
+nn g>						<CMD>tabmove +<CR>
 nn <TAB>					gt
 nn <s-TAB>					gT
 
@@ -109,7 +109,6 @@ autocmd BufWritePost Xresources	!xrdb "%:p"
 autocmd BufRead *.py			set expandtab tabstop=4 shiftwidth=4
 autocmd BufRead *.json			set tabstop=2
 autocmd BufWritePre *.rs		Neoformat
-autocmd BufRead *.lalrpop		setf rust
 
 function! s:show_documentation()
 	if (index(['vim','help'], &filetype) >= 0)
