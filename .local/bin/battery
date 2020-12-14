@@ -4,9 +4,6 @@ for battery in /sys/class/power_supply/BAT?
 do
 	capacity=$(cat "$battery"/capacity) || exit
 	status=$(cat "$battery"/status)
-
-	[ "$status" = 'Discharging' ] && [ "$capacity" -le 20 ] && warn='!'
-
-	printf '%s%s%s\n' "$(echo "$status" | sed 's/,//;s/Discharging/🮦/;s/Not charging/🮮/;s/Charging/🮧/;s/Unknown/🭸/;s/Full/🮮/;s/ 0*/ /g;s/ :/ /g')" "$warn" "$capacity%"
-	unset warn
+	[ "$status" = 'Discharging' ] && [ "$capacity" -le 20 ] && warn='!' || warn=''
+	echo "$(echo "$status" | sed 's/,//;s/Discharging/🮦/;s/Not charging/🮮/;s/Charging/🮧/;s/Unknown/🭸/;s/Full/🮮/;s/ 0*/ /g;s/ :/ /g')${warn}${capacity}%"
 done
