@@ -13,7 +13,6 @@ alias ka='killall'
 alias gs='git status'
 alias gd='git diff'
 alias gg='git grep'
-alias clone='git clone'
 alias v='nvim -p'
 alias sudo='sudo '
 alias cr='cargo run'
@@ -45,12 +44,6 @@ zle -N zle-keymap-select
 
 precmd() {
 	printf '\e[5 q'
-}
-
-lazygit() {
-	git add .
-	git commit -m "$@"
-	git push
 }
 
 PS1='%F{black}%K{blue} %~ %F{blue}%k%f%k '
