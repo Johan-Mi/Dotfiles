@@ -108,6 +108,7 @@ ino <expr><S-TAB>			pumvisible() ? "\<C-p>" : "\<C-h>"
 autocmd BufWritePost Xresources	!xrdb "%:p"
 autocmd BufRead *.py			set expandtab tabstop=4 shiftwidth=4
 autocmd BufRead *.json			set tabstop=2
+autocmd BufRead *.scratch		setf python | set tabstop=4 shiftwidth=4
 autocmd BufWritePre *.rs		Neoformat
 
 function! s:show_documentation()
