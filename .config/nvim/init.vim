@@ -91,8 +91,8 @@ nn <leader>cf				<CMD>Neoformat<CR>
 nn <leader>cF				<CMD>call CocAction("format")<CR>
 nn <leader>tt				:tabe<Space>
 nn <leader>gg				<CMD>execute '!git grep' expand('<cword>')<cr>
-nn <leader>uw				m`dwxf>x``
-nn <leader>uW				m`dwr&f>x``
+nn <leader>uw				dwf>xF<x
+nn <leader>uW				dwf>xF<r&
 nn <leader>qf				<CMD>CocFix<CR>
 nn <leader>l				<CMD>!cargo clippy<CR>
 ino <silent><expr><c-space>	coc#refresh()
