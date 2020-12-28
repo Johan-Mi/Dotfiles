@@ -23,7 +23,7 @@ xkb_symbols "se_tweaks" {
 
     key <BKSL>	{ [apostrophe,	asterisk,		acute,		multiply		] };
 
-    key <SPCE>	{ [space,		space,			space,		nobreakspace	] };
+    key <SPCE>	{ [space,		underscore,		minus,		nobreakspace	] };
 
     key <LSGT>  { [less,		greater,		bar,		brokenbar		] };
 
