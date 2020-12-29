@@ -1,0 +1,29 @@
+\e{blue}                   'o'
+                  'ooo'
+                 'ooxoo'
+                'ooxxxoo'
+               'oookkxxoo'
+              'oiioxkkxxoo'
+             ':;:iiiioxxxoo'
+                `'.;::ioxxoo'       \e{reset}               db                          88\e{blue}
+           '-.      `':;jiooo'      \e{reset}              d88b                   ,d    ""\e{blue}
+          'oooio-..     `'i:io'     \e{reset}             d8'`8b                  88\e{blue}
+         'ooooxxxxoio:,.   `'-;'    \e{reset}            d8'  `8b     8b,dPYba, MM88MMM 88 8b,    ,d8\e{blue}
+        'ooooxxxxxkkxoooIi:-.  `'   \e{reset}           d8YaaaaY8b    88P'  "Y8   88    88  `Y8,,8P'\e{blue}
+       'ooooxxxxxkkkkxoiiiiiji'     \e{reset}          d8""""""""8b   88          88    88    )88(\e{blue}
+      'ooooxxxxxkxxoiiii:'`     .i' \e{reset}         d8'        `8b  88          88,   88  ,d8""8b,\e{blue}
+     'ooooxxxxxoi:::'`       .;ioxo'\e{reset}        d8'          `8b 88          "Y888 88 8P'    `Y8\e{blue}
+    'ooooxooi::'`         .:iiixkxxo'
+   'ooooi:'`                `'';ioxxo'
+  'i:'`                          '':io'
+ '`                                   `'
+
+\e{reset}
+  TTY: \l
+  Host: \n
+  Arch: \m
+  Kernel: \r
+  Build: \v
+
+  \d \t
+

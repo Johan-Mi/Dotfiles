@@ -109,5 +109,5 @@ set ratios "1:3:4"
 set tabstop 4
 set previewer /usr/bin/pistol
 set promptfmt "\033[34;1m%w/\033[0m\033[1m%f\033[0m"
-
-reload
+set hidden
+set truncatechar "…"
