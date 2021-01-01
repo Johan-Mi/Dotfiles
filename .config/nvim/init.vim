@@ -94,6 +94,7 @@ nn <leader>gg				<CMD>execute '!git grep' expand('<cword>')<cr>
 nn <leader>uw				dwf>xF<x
 nn <leader>uW				dwf>xF<r&
 nn <leader>qf				<CMD>CocFix<CR>
+nn <leader>a				<CMD>CocAction<CR>
 nn <leader>l				<CMD>!cargo clippy<CR>
 ino <silent><expr><c-space>	coc#refresh()
 ino <expr><cr>				pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
