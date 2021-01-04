@@ -46,6 +46,7 @@ set cursorline cursorcolumn
 set list listchars=tab:¦\ "Trailing space
 set formatoptions-=t
 set clipboard=unnamedplus
+set ignorecase smartcase
 
 set hidden
 set nobackup nowritebackup
