@@ -1,4 +1,4 @@
 #!/bin/sh
 
-exec dmenu -i -p 'r/' < ~/.local/share/subreddits \
-	| xargs -rI{} /usr/lib/brave-bin/brave --new-window 'reddit.com/r/{}'
+r=$(dmenu -i -p 'r/' < ~/.local/share/subreddits) || exit
+exec /usr/lib/brave-bin/brave --new-window "reddit.com/r/$r"
