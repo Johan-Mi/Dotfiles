@@ -16,19 +16,19 @@ let g:lightline = {
 	\ 	'left': [ [ 'mode', 'paste' ],
 	\ 	          [ 'readonly' ],
 	\             [ 'filename', 'modified'],
-	\ 	          [ 'lineinfo', 'percent' ] ],
+	\ 	          [ 'lineinfo', 'percentwin' ] ],
 	\ 	'right': [ [ 'filetype' ],
 	\ 	           [ 'fileformat', 'fileencoding' ] ]
 	\ 	},
 	\ 'component': {
 	\ 	'fileformat': '%{&ff=="unix"?"LF":&ff=="dos"?"CRLF":"CR"}',
-	\ 	'percent': '%P',
 	\ 	'readonly': '%{&readonly?"":""}'
 	\ 	},
 	\ 'mode_map': {
 	\ 	'n' : '', 'i' : '', 'R' : '', 'v' : '', 'V' : '', "\<C-v>": '',
 	\ 	'c' : '', 's' : '', 'S' : '', "\<C-s>": '', 't': '',
 	\ 	},
+	\ 'tabline': { 'right': [ [ ] ] }
 	\ }
 let g:lightline.inactive = g:lightline.active
 
