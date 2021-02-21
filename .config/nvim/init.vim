@@ -5,6 +5,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'joshdick/onedark.vim'
 	Plug 'sbdchd/neoformat'
 	Plug 'cespare/vim-toml'
+	Plug 'ron-rs/ron.vim'
 call plug#end()
 
 let g:neoformat_basic_format_retab=0
