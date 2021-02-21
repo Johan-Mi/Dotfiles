@@ -60,7 +60,7 @@ highlight CursorColumn	ctermbg=233	guibg=#0e0e0e
 highlight CursorLineNr	ctermbg=233	guibg=#0e0e0e
 highlight WhiteSpace	ctermfg=234	guifg=#303030
 highlight StatusLine				guibg=#0b0b0b
-highlight Pmenu						guibg=#121212
+highlight Pmenu						guibg=#202020
 
 let mapleader=" "
 
