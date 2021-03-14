@@ -1,7 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 	Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 	Plug 'tpope/vim-commentary'
-	Plug 'itchyny/lightline.vim'
 	Plug 'joshdick/onedark.vim'
 	Plug 'sbdchd/neoformat'
 	Plug 'cespare/vim-toml'
@@ -10,32 +9,13 @@ call plug#end()
 
 let g:neoformat_basic_format_retab=0
 
-let g:lightline = {
-	\ 'colorscheme': 'modeline',
-	\ 'subseparator': { 'left': '', 'right': '' },
-	\ 'active': {
-	\ 	'left': [ [ 'mode', 'paste' ],
-	\ 	          [ 'readonly' ],
-	\             [ 'filename', 'modified'],
-	\ 	          [ 'lineinfo', 'percentwin' ] ],
-	\ 	'right': [ [ 'filetype' ],
-	\ 	           [ 'fileformat', 'fileencoding' ] ]
-	\ 	},
-	\ 'component': {
-	\ 	'fileformat': '%{&ff=="unix"?"LF":&ff=="dos"?"CRLF":"CR"}',
-	\ 	'readonly': '%{&readonly?"":""}'
-	\ 	},
-	\ 'mode_map': {
-	\ 	'n' : '', 'i' : '', 'R' : '', 'v' : '', 'V' : '', "\<C-v>": '',
-	\ 	'c' : '', 's' : '', 'S' : '', "\<C-s>": '', 't': '',
-	\ 	},
-	\ 'tabline': { 'right': [ [ ] ] }
-	\ }
-let g:lightline.inactive = g:lightline.active
-
 syntax on
 colorscheme onedark
 set termguicolors
+
+set statusline=\ %<%1*%f%*\ %h%m%r%=%.(%P\ \ \ %l,%v%)\ \ \ %2*%{&ft}%*\ "Trailing space
+highlight User1											gui=bold
+highlight User2			guifg=#61afef	guibg=#0b0b0b	gui=bold
 
 set number relativenumber
 set tabstop=4 shiftwidth=4
