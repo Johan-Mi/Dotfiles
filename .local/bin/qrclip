@@ -1,5 +1,5 @@
 #!/bin/sh
 
-xsel -bo | qrencode -o ~/.cache/qr_ || exit
+xclip -o -selection clipboard | qrencode -o ~/.cache/qr_ || exit
 sxiv -fb -sf ~/.cache/qr_
 rm ~/.cache/qr_

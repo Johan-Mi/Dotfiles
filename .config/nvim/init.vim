@@ -14,7 +14,7 @@ colorscheme onedark
 set termguicolors
 
 set statusline=\ %<%1*%f%*\ %h%m%r%=%.(%P\ \ \ %l,%v%)\ \ \ %2*%{&ft}%*\ "Trailing space
-highlight User1											gui=bold
+highlight User1							guibg=#0b0b0b	gui=bold
 highlight User2			guifg=#61afef	guibg=#0b0b0b	gui=bold
 
 set number relativenumber
@@ -71,7 +71,8 @@ nn <leader>qq				<CMD>xa<CR>
 nn <leader>qQ				<CMD>qa!<CR>
 nn <leader>cf				<CMD>Neoformat<CR>
 nn <leader>cF				<CMD>call CocAction("format")<CR>
-nn <leader>tt				:tabe<Space>
+nn <leader>t				:tabe<Space>
+nn <leader>e				:edit<Space>
 nn <leader>gg				<CMD>execute '!git grep' expand('<cword>')<cr>
 nn <leader>uw				dwf>xF<x
 nn <leader>uW				dwf>xF<r&

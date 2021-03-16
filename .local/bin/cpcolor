@@ -1,2 +1,5 @@
 #!/bin/sh
-colorpicker --short --one-shot --preview | xsel -b
+
+colorpicker --short --one-shot --preview \
+	| tr -d '\n' \
+	| xclip -selection clipboard
