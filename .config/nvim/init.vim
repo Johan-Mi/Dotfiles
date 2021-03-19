@@ -13,9 +13,10 @@ syntax on
 colorscheme onedark
 set termguicolors
 
-set statusline=\ %<%1*%f%*\ %h%m%r%=%.(%P\ \ \ %l,%v%)\ \ \ %2*%{&ft}%*\ "Trailing space
+set statusline=\ %<%1*%f%*\ %h%m%3*%{&readonly?'':''}%*\ %3l:%-2v\ %P%=%{&ff=='unix'?'LF':&ff=='dos'?'CRLF':'CR'}\ \ \ %2*%{&ft}%*\ "Trailing space
 highlight User1							guibg=#0b0b0b	gui=bold
 highlight User2			guifg=#61afef	guibg=#0b0b0b	gui=bold
+highlight User3			guifg=#d19a66	guibg=#0b0b0b
 
 set number relativenumber
 set tabstop=4 shiftwidth=4
