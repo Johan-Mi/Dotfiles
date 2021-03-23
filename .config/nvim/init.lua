@@ -1,14 +1,15 @@
 local map = vim.api.nvim_set_keymap
+local cmd = vim.cmd
 
 local function tc(str)
 	return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
-vim.cmd([[packadd paq-nvim]])
+cmd [[packadd paq-nvim]]
 local paq = require 'paq-nvim'.paq
 paq { 'savq/paq-nvim', opt = true }
 
-paq { 'neoclide/coc.nvim', run = 'coc#util#install()' }
+paq { 'neoclide/coc.nvim', branch = 'release' }
 paq 'tpope/vim-commentary'
 paq 'joshdick/onedark.vim'
 paq 'sbdchd/neoformat'
@@ -17,8 +18,8 @@ paq 'ron-rs/ron.vim'
 
 vim.g.neoformat_basic_format_retab = 0
 
-vim.cmd([[syntax on]])
-vim.cmd([[colorscheme onedark]])
+cmd [[syntax on]]
+cmd [[colorscheme onedark]]
 vim.o.termguicolors = true
 
 vim.o.statusline = [[ %<%1*%f%* %h%m%3*%{&readonly?'':''}%* %3l:%-2v %P%=%{&ff=='unix'?'LF':&ff=='dos'?'CRLF':'CR'}   %2*%{&ft}%* ]]
@@ -48,9 +49,10 @@ vim.o.cursorcolumn = true
 vim.wo.cursorline = true
 vim.wo.cursorcolumn = true
 vim.o.list = true
+vim.wo.list = true
 vim.o.listchars = 'tab:¦ '
--- vim.o.formatoptions -= 't'
-vim.cmd([[set formatoptions-=t]])
+vim.wo.listchars = 'tab:¦ '
+vim.o.formatoptions = string.gsub(vim.o.formatoptions, 't', '')
 vim.o.clipboard = 'unnamedplus'
 vim.o.ignorecase = true
 
@@ -108,14 +110,14 @@ map('n', '<Leader>qf', '<cmd>CocFix<CR>', { noremap = true })
 map('n', '<Leader>a', '<cmd>CocAction<CR>', { noremap = true })
 map('n', '<Leader>l', '<cmd>!cargo clippy<CR>', { noremap = true })
 map('n', '<C-Space>', 'coc#refresh()', { noremap = true, silent = true, expr = true })
-map('i', '<CR>', tc('pumvisible() ? "<C-y>" : "<C-g>u<CR>"'), { noremap = true, expr = true })
+map('i', '<CR>', tc 'pumvisible() ? "<C-y>" : "<C-g>u<CR>"', { noremap = true, expr = true })
 map('n', '<Leader>cd', '<Plug>(coc-definition)', { noremap = true, silent = true })
 map('n', '<Leader>cD', '<Plug>(coc-references)', { noremap = true, silent = true })
 map('n', 'K', '<cmd>call v:lua.show_documentation()<CR>', { noremap = true, silent = true })
 map('n', '<Leader>cr', '<Plug>(coc-rename)', { noremap = true })
 map('', '<Space><Space>', ':', { noremap = true })
-map('i', '<Tab>', tc('pumvisible() ? "<C-n>" : "<Tab>"'), { noremap = true, expr = true })
-map('i', '<S-Tab>', tc('pumvisible() ? "<C-p>" : "<C-h>"'), { noremap = true, expr = true })
+map('i', '<Tab>', tc 'pumvisible() ? "<C-n>" : "<Tab>"', { noremap = true, expr = true })
+map('i', '<S-Tab>', tc 'pumvisible() ? "<C-p>" : "<C-h>"', { noremap = true, expr = true })
 
 vim.api.nvim_exec([[
 autocmd BufWritePost Xresources	!xrdb "%:p"
@@ -127,17 +129,17 @@ autocmd BufWritePre *.rs		Neoformat
 
 function _G.show_documentation()
 	if vim.bo.filetype == 'vim' or vim.bo.filetype == 'help' then
-		vim.cmd('help ' .. vim.fn.expand('<cword>'))
+		cmd ('help ' .. vim.fn.expand('<cword>'))
 	else
-		vim.fn.CocAction('doHover')
+		vim.fn.CocAction 'doHover'
 	end
 end
 
 function _G.compile_and_run()
-	vim.cmd([[silent !cargo locate-project]])
+	cmd [[silent !cargo locate-project]]
 	if vim.v.shell_error == 0 then
-		vim.cmd([[!cargo run]])
+		cmd [[!cargo run]]
 	else
-		vim.cmd([[!make&&./main]])
+		cmd [[!make&&./main]]
 	end
 end
