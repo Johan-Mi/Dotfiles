@@ -43,7 +43,9 @@ vim.o.hlsearch = false
 vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.textwidth = 80
+vim.bo.textwidth = 80
 vim.o.colorcolumn = '+1'
+vim.wo.colorcolumn = '+1'
 vim.o.cursorline = true
 vim.o.cursorcolumn = true
 vim.wo.cursorline = true
@@ -61,6 +63,7 @@ vim.o.backup = false
 vim.o.writebackup = false
 vim.o.shortmess = vim.o.shortmess .. 'cI'
 vim.o.signcolumn = 'no'
+vim.wo.signcolumn = 'no'
 
 vim.api.nvim_exec([[
 highlight colorcolumn ctermbg=232 guibg=#080808
