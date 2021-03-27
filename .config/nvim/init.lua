@@ -15,6 +15,10 @@ paq 'joshdick/onedark.vim'
 paq 'sbdchd/neoformat'
 paq 'cespare/vim-toml'
 paq 'ron-rs/ron.vim'
+paq 'windwp/nvim-autopairs'
+
+local npairs = require 'nvim-autopairs'
+npairs.setup {}
 
 vim.g.neoformat_basic_format_retab = 0
 
@@ -77,7 +81,7 @@ highlight Pmenu guibg=#202020
 
 vim.g.mapleader = ' '
 
-map('', '<Space>', '§', { noremap = true })
+map('', '<Space>', '<Nop>', { noremap = true })
 map('i', 'jk', '<Esc>', { noremap = true })
 map('i', 'kj', '<Esc>', { noremap = true })
 map('n', '<C-h>', '<C-w>h', { noremap = true })
@@ -112,8 +116,8 @@ map('n', '<Leader>uW', 'dwf>xF<r&', { noremap = true })
 map('n', '<Leader>qf', '<cmd>CocFix<CR>', { noremap = true })
 map('n', '<Leader>a', '<cmd>CocAction<CR>', { noremap = true })
 map('n', '<Leader>l', '<cmd>!cargo clippy<CR>', { noremap = true })
-map('n', '<C-Space>', 'coc#refresh()', { noremap = true, silent = true, expr = true })
-map('i', '<CR>', tc 'pumvisible() ? "<C-y>" : "<C-g>u<CR>"', { noremap = true, expr = true })
+map('i', '<C-Space>', 'coc#refresh()', { noremap = true, silent = true, expr = true })
+map('i', '<CR>', 'v:lua.completion_confirm()', { noremap = true, expr = true })
 map('n', '<Leader>cd', '<Plug>(coc-definition)', { noremap = true, silent = true })
 map('n', '<Leader>cD', '<Plug>(coc-references)', { noremap = true, silent = true })
 map('n', 'K', '<cmd>call v:lua.show_documentation()<CR>', { noremap = true, silent = true })
@@ -144,5 +148,13 @@ function _G.compile_and_run()
 		cmd [[!cargo run]]
 	else
 		cmd [[!make&&./main]]
+	end
+end
+
+function _G.completion_confirm()
+	if vim.fn.pumvisible() ~= 0 then
+		return tc '<C-y>'
+	else
+		return npairs.check_break_line_char()
 	end
 end
