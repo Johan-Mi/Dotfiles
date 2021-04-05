@@ -31,7 +31,7 @@ vim.api.nvim_exec([[
 highlight User1 guibg=#0b0b0b gui=bold
 highlight User2 guifg=#61afef guibg=#0b0b0b gui=bold
 highlight User3 guifg=#d19a66 guibg=#0b0b0b
-]], true)
+]], false)
 
 vim.o.number = true
 vim.o.relativenumber = true
@@ -77,11 +77,11 @@ highlight CursorLineNr ctermbg=233 guibg=#0e0e0e
 highlight WhiteSpace ctermfg=234 guifg=#303030
 highlight StatusLine guibg=#0b0b0b
 highlight Pmenu guibg=#202020
-]], true)
+]], false)
 
 vim.g.mapleader = ' '
 
-map('', '<Space>', '<Nop>', { noremap = true })
+map('', '<Space>', '', { noremap = true })
 map('i', 'jk', '<Esc>', { noremap = true })
 map('i', 'kj', '<Esc>', { noremap = true })
 map('n', '<C-h>', '<C-w>h', { noremap = true })
@@ -132,7 +132,7 @@ autocmd BufRead *.py			set expandtab tabstop=4 shiftwidth=4
 autocmd BufRead *.json			set tabstop=2
 autocmd BufRead *.scratch		setf python | set tabstop=4 shiftwidth=4
 autocmd BufWritePre *.rs		Neoformat
-]], true)
+]], false)
 
 function _G.show_documentation()
 	if vim.bo.filetype == 'vim' or vim.bo.filetype == 'help' then
