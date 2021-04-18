@@ -120,6 +120,7 @@ map('i', '<C-Space>', 'coc#refresh()', { noremap = true, silent = true, expr = t
 map('i', '<CR>', 'v:lua.completion_confirm()', { noremap = true, expr = true })
 map('n', '<Leader>cd', '<Plug>(coc-definition)', { silent = true })
 map('n', '<Leader>cD', '<Plug>(coc-references)', { silent = true })
+map('n', '<Leader>ct', '<Plug>(coc-type-definitions)', { silent = true })
 map('n', 'K', '<cmd>call v:lua.show_documentation()<CR>', { noremap = true, silent = true })
 map('n', '<Leader>cr', '<Plug>(coc-rename)', {})
 map('', '<Space><Space>', ':', { noremap = true })
