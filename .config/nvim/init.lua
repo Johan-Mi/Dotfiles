@@ -2,11 +2,11 @@ local map = vim.api.nvim_set_keymap
 local cmd = vim.cmd
 
 local function tc(str)
-	return vim.api.nvim_replace_termcodes(str, true, true, true)
+    return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
 cmd [[packadd paq-nvim]]
-local paq = require 'paq-nvim'.paq
+local paq = require'paq-nvim'.paq
 paq { 'savq/paq-nvim', opt = true }
 
 paq { 'neoclide/coc.nvim', branch = 'release' }
@@ -26,7 +26,8 @@ cmd [[syntax on]]
 cmd [[colorscheme onedark]]
 vim.o.termguicolors = true
 
-vim.o.statusline = [[ %<%1*%f%* %h%m%3*%{&readonly?'':''}%* %3l:%-2v %P%=%{&ff=='unix'?'LF':&ff=='dos'?'CRLF':'CR'}   %2*%{&ft}%* ]]
+vim.o.statusline =
+    [[ %<%1*%f%* %h%m%3*%{&readonly?'':''}%* %3l:%-2v %P%=%{&ff=='unix'?'LF':&ff=='dos'?'CRLF':'CR'}   %2*%{&ft}%* ]]
 vim.api.nvim_exec([[
 highlight User1 guibg=#0b0b0b gui=bold
 highlight User2 guifg=#61afef guibg=#0b0b0b gui=bold
@@ -101,7 +102,8 @@ map('n', '<S-Tab>', 'gT', { noremap = true })
 map('n', '<Leader>fs', '<cmd>update<CR>', { noremap = true })
 map('n', '<Leader>cc', '<cmd>!make<CR>', { noremap = true })
 map('n', '<Leader>cl', '<cmd>!make clean<CR>', { noremap = true, silent = true })
-map('n', '<Leader>n', '<cmd>call v:lua.compile_and_run()<CR>', { noremap = true })
+map('n', '<Leader>n', '<cmd>call v:lua.compile_and_run()<CR>',
+    { noremap = true })
 map('n', '<Leader>d', '<cmd>Lexplore<CR>', { noremap = true })
 map('n', '<Leader>r', '<cmd>!"%:p"<CR>', { noremap = true })
 map('n', '<Leader>qq', '<cmd>xa<CR>', { noremap = true })
@@ -110,22 +112,27 @@ map('n', '<Leader>cf', '<cmd>Neoformat<CR>', { noremap = true })
 map('n', '<Leader>cF', '<cmd>call CocAction("format")<CR>', { noremap = true })
 map('n', '<Leader>t', ':tabedit ', { noremap = true })
 map('n', '<Leader>e', ':edit ', { noremap = true })
-map('n', '<Leader>gg', '<cmd>execute "!git grep" expand("<cword>")<cr>', { noremap = true })
+map('n', '<Leader>gg', '<cmd>execute "!git grep" expand("<cword>")<cr>',
+    { noremap = true })
 map('n', '<Leader>uw', 'dwf>xF<x', { noremap = true })
 map('n', '<Leader>uW', 'dwf>xF<r&', { noremap = true })
 map('n', '<Leader>qf', '<cmd>CocFix<CR>', { noremap = true })
 map('n', '<Leader>a', '<cmd>CocAction<CR>', { noremap = true })
 map('n', '<Leader>l', '<cmd>!cargo clippy<CR>', { noremap = true })
-map('i', '<C-Space>', 'coc#refresh()', { noremap = true, silent = true, expr = true })
+map('i', '<C-Space>', 'coc#refresh()',
+    { noremap = true, silent = true, expr = true })
 map('i', '<CR>', 'v:lua.completion_confirm()', { noremap = true, expr = true })
 map('n', '<Leader>cd', '<Plug>(coc-definition)', { silent = true })
 map('n', '<Leader>cD', '<Plug>(coc-references)', { silent = true })
 map('n', '<Leader>ct', '<Plug>(coc-type-definitions)', { silent = true })
-map('n', 'K', '<cmd>call v:lua.show_documentation()<CR>', { noremap = true, silent = true })
+map('n', 'K', '<cmd>call v:lua.show_documentation()<CR>',
+    { noremap = true, silent = true })
 map('n', '<Leader>cr', '<Plug>(coc-rename)', {})
 map('', '<Space><Space>', ':', { noremap = true })
-map('i', '<Tab>', tc 'pumvisible() ? "<C-n>" : "<Tab>"', { noremap = true, expr = true })
-map('i', '<S-Tab>', tc 'pumvisible() ? "<C-p>" : "<C-h>"', { noremap = true, expr = true })
+map('i', '<Tab>', tc 'pumvisible() ? "<C-n>" : "<Tab>"',
+    { noremap = true, expr = true })
+map('i', '<S-Tab>', tc 'pumvisible() ? "<C-p>" : "<C-h>"',
+    { noremap = true, expr = true })
 
 vim.api.nvim_exec([[
 autocmd BufWritePost Xresources	!xrdb "%:p"
@@ -136,26 +143,26 @@ autocmd BufWritePre *.rs,*.lua	Neoformat
 ]], false)
 
 function _G.show_documentation()
-	if vim.bo.filetype == 'vim' or vim.bo.filetype == 'help' then
-		cmd ('help ' .. vim.fn.expand('<cword>'))
-	else
-		vim.fn.CocAction 'doHover'
-	end
+    if vim.bo.filetype == 'vim' or vim.bo.filetype == 'help' then
+        cmd('help ' .. vim.fn.expand('<cword>'))
+    else
+        vim.fn.CocAction 'doHover'
+    end
 end
 
 function _G.compile_and_run()
-	cmd [[silent !cargo locate-project]]
-	if vim.v.shell_error == 0 then
-		cmd [[!cargo run]]
-	else
-		cmd [[!make&&./main]]
-	end
+    cmd [[silent !cargo locate-project]]
+    if vim.v.shell_error == 0 then
+        cmd [[!cargo run]]
+    else
+        cmd [[!make&&./main]]
+    end
 end
 
 function _G.completion_confirm()
-	if vim.fn.pumvisible() ~= 0 then
-		return tc '<C-y>'
-	else
-		return npairs.check_break_line_char()
-	end
+    if vim.fn.pumvisible() ~= 0 then
+        return tc '<C-y>'
+    else
+        return npairs.check_break_line_char()
+    end
 end
