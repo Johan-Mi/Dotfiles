@@ -120,7 +120,6 @@ map('n', '<Leader>r', '<cmd>!"%:p"<CR>', { noremap = true })
 map('n', '<Leader>qq', '<cmd>xa<CR>', { noremap = true })
 map('n', '<Leader>qQ', '<cmd>qa!<CR>', { noremap = true })
 map('n', '<Leader>cf', '<cmd>Neoformat<CR>', { noremap = true })
-    { noremap = true, silent = true })
 map('n', '<Leader>t', ':tabedit ', { noremap = true })
 map('n', '<Leader>e', ':edit ', { noremap = true })
 map('n', '<Leader>gg', '<cmd>execute "!git grep" expand("<cword>")<cr>',
