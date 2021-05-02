@@ -93,60 +93,54 @@ highlight Pmenu guibg=#202020
 
 vim.g.mapleader = ' '
 
-map('', '<Space>', '', { noremap = true })
-map('i', 'jk', '<Esc>', { noremap = true })
-map('i', 'kj', '<Esc>', { noremap = true })
-map('n', '<C-h>', '<C-w>h', { noremap = true })
-map('n', '<C-j>', '<C-w>j', { noremap = true })
-map('n', '<C-k>', '<C-w>k', { noremap = true })
-map('n', '<C-l>', '<C-w>l', { noremap = true })
-map('i', '<C-h>', '<BS>', { noremap = true })
-map('i', '<C-b>', '<C-k>', { noremap = true })
-map('n', ';', 'm`A;<Esc>``', { noremap = true, silent = true })
-map('n', '!', ':!', { noremap = true })
-map('n', '§', '@:', { noremap = true })
-map('n', 'g<', '<cmd>tabmove -<CR>', { noremap = true })
-map('n', 'g>', '<cmd>tabmove +<CR>', { noremap = true })
-map('n', '<Tab>', 'gt', { noremap = true })
-map('n', '<S-Tab>', 'gT', { noremap = true })
+local map_n = { noremap = true }
+local map_ns = { noremap = true, silent = true }
+local map_ne = { noremap = true, expr = true }
+local map_nse = { noremap = true, silent = true, expr = true }
 
-map('n', '<Leader>fs', '<cmd>update<CR>', { noremap = true })
-map('n', '<Leader>cc', '<cmd>!make<CR>', { noremap = true })
-map('n', '<Leader>cl', '<cmd>!make clean<CR>', { noremap = true, silent = true })
-map('n', '<Leader>n', '<cmd>call v:lua.compile_and_run()<CR>',
-    { noremap = true })
-map('n', '<Leader>d', '<cmd>Lexplore<CR>', { noremap = true })
-map('n', '<Leader>r', '<cmd>!"%:p"<CR>', { noremap = true })
-map('n', '<Leader>qq', '<cmd>xa<CR>', { noremap = true })
-map('n', '<Leader>qQ', '<cmd>qa!<CR>', { noremap = true })
-map('n', '<Leader>cf', '<cmd>Neoformat<CR>', { noremap = true })
-map('n', '<Leader>t', ':tabedit ', { noremap = true })
-map('n', '<Leader>e', ':edit ', { noremap = true })
-map('n', '<Leader>gg', '<cmd>execute "!git grep" expand("<cword>")<cr>',
-    { noremap = true })
-map('n', '<Leader>uw', 'dwf>xF<x', { noremap = true })
-map('n', '<Leader>uW', 'dwf>xF<r&', { noremap = true })
-map('n', '<Leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>',
-    { noremap = true, silent = true })
-map('n', '<Leader>l', '<cmd>!cargo clippy<CR>', { noremap = true })
-map('i', '<C-Space>', 'compe#complete()',
-    { noremap = true, silent = true, expr = true })
-map('i', '<CR>', 'v:lua.completion_confirm()', { noremap = true, expr = true })
-map('n', '<Leader>cd', '<cmd>lua vim.lsp.buf.definition()<CR>',
-    { noremap = true, silent = true })
-map('n', '<Leader>cD', '<cmd>lua vim.lsp.buf.references()<CR>',
-    { noremap = true, silent = true })
-map('n', '<Leader>ct', '<cmd>lua vim.lsp.buf.type_definition()<CR>',
-    { noremap = true, silent = true })
-map('n', 'K', '<cmd>call v:lua.show_documentation()<CR>',
-    { noremap = true, silent = true })
-map('n', '<Leader>cr', '<cmd>lua vim.lsp.buf.rename()<CR>',
-    { noremap = true, silent = true })
-map('', '<Space><Space>', ':', { noremap = true })
-map('i', '<Tab>', tc 'pumvisible() ? "<C-n>" : "<Tab>"',
-    { noremap = true, expr = true })
-map('i', '<S-Tab>', tc 'pumvisible() ? "<C-p>" : "<C-h>"',
-    { noremap = true, expr = true })
+map('', '<Space>', '', map_n)
+map('i', 'jk', '<Esc>', map_n)
+map('i', 'kj', '<Esc>', map_n)
+map('n', '<C-h>', '<C-w>h', map_n)
+map('n', '<C-j>', '<C-w>j', map_n)
+map('n', '<C-k>', '<C-w>k', map_n)
+map('n', '<C-l>', '<C-w>l', map_n)
+map('i', '<C-h>', '<BS>', map_n)
+map('i', '<C-b>', '<C-k>', map_n)
+map('n', ';', 'm`A;<Esc>``', map_ns)
+map('n', '!', ':!', map_n)
+map('n', '§', '@:', map_n)
+map('n', 'g<', '<cmd>tabmove -<CR>', map_n)
+map('n', 'g>', '<cmd>tabmove +<CR>', map_n)
+map('n', '<Tab>', 'gt', map_n)
+map('n', '<S-Tab>', 'gT', map_n)
+
+map('n', '<Leader>fs', '<cmd>update<CR>', map_n)
+map('n', '<Leader>cc', '<cmd>!make<CR>', map_n)
+map('n', '<Leader>cl', '<cmd>!make clean<CR>', map_ns)
+map('n', '<Leader>n', '<cmd>call v:lua.compile_and_run()<CR>', map_n)
+map('n', '<Leader>d', '<cmd>Lexplore<CR>', map_n)
+map('n', '<Leader>r', '<cmd>!"%:p"<CR>', map_n)
+map('n', '<Leader>qq', '<cmd>xa<CR>', map_n)
+map('n', '<Leader>qQ', '<cmd>qa!<CR>', map_n)
+map('n', '<Leader>cf', '<cmd>Neoformat<CR>', map_n)
+map('n', '<Leader>t', ':tabedit ', map_n)
+map('n', '<Leader>e', ':edit ', map_n)
+map('n', '<Leader>gg', '<cmd>execute "!git grep" expand("<cword>")<cr>', map_n)
+map('n', '<Leader>uw', 'dwf>xF<x', map_n)
+map('n', '<Leader>uW', 'dwf>xF<r&', map_n)
+map('n', '<Leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', map_ns)
+map('n', '<Leader>l', '<cmd>!cargo clippy<CR>', map_n)
+map('i', '<C-Space>', 'compe#complete()', map_nse)
+map('i', '<CR>', 'v:lua.completion_confirm()', map_ne)
+map('n', '<Leader>cd', '<cmd>lua vim.lsp.buf.definition()<CR>', map_ns)
+map('n', '<Leader>cD', '<cmd>lua vim.lsp.buf.references()<CR>', map_ns)
+map('n', '<Leader>ct', '<cmd>lua vim.lsp.buf.type_definition()<CR>', map_ns)
+map('n', 'K', '<cmd>call v:lua.show_documentation()<CR>', map_ns)
+map('n', '<Leader>cr', '<cmd>lua vim.lsp.buf.rename()<CR>', map_ns)
+map('', '<Space><Space>', ':', map_n)
+map('i', '<Tab>', tc 'pumvisible() ? "<C-n>" : "<Tab>"', map_ne)
+map('i', '<S-Tab>', tc 'pumvisible() ? "<C-p>" : "<C-h>"', map_ne)
 
 vim.api.nvim_exec([[
 autocmd BufWritePost Xresources	!xrdb "%:p"
