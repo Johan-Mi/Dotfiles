@@ -9,7 +9,8 @@ cmd [[packadd paq-nvim]]
 local paq = require'paq-nvim'.paq
 paq { 'savq/paq-nvim', opt = true }
 
-paq { 'neoclide/coc.nvim', branch = 'release' }
+paq 'neovim/nvim-lspconfig'
+paq 'hrsh7th/nvim-compe'
 paq 'tpope/vim-commentary'
 paq 'joshdick/onedark.vim'
 paq 'sbdchd/neoformat'
@@ -17,10 +18,20 @@ paq 'cespare/vim-toml'
 paq 'ron-rs/ron.vim'
 paq 'windwp/nvim-autopairs'
 
+vim.o.completeopt = 'menuone,noselect'
+
+require'compe'.setup {
+    preselect = 'always',
+    source = { path = true, buffer = true, nvim_lsp = true, nvim_lua = true },
+}
+
 local npairs = require 'nvim-autopairs'
 npairs.setup {}
 
 vim.g.neoformat_basic_format_retab = 0
+
+local lspconfig = require 'lspconfig'
+lspconfig.rust_analyzer.setup {}
 
 cmd [[syntax on]]
 cmd [[colorscheme onedark]]
@@ -109,25 +120,29 @@ map('n', '<Leader>r', '<cmd>!"%:p"<CR>', { noremap = true })
 map('n', '<Leader>qq', '<cmd>xa<CR>', { noremap = true })
 map('n', '<Leader>qQ', '<cmd>qa!<CR>', { noremap = true })
 map('n', '<Leader>cf', '<cmd>Neoformat<CR>', { noremap = true })
-map('n', '<Leader>cF', '<cmd>call CocAction("format")<CR>', { noremap = true })
+    { noremap = true, silent = true })
 map('n', '<Leader>t', ':tabedit ', { noremap = true })
 map('n', '<Leader>e', ':edit ', { noremap = true })
 map('n', '<Leader>gg', '<cmd>execute "!git grep" expand("<cword>")<cr>',
     { noremap = true })
 map('n', '<Leader>uw', 'dwf>xF<x', { noremap = true })
 map('n', '<Leader>uW', 'dwf>xF<r&', { noremap = true })
-map('n', '<Leader>qf', '<cmd>CocFix<CR>', { noremap = true })
-map('n', '<Leader>a', '<cmd>CocAction<CR>', { noremap = true })
+map('n', '<Leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>',
+    { noremap = true, silent = true })
 map('n', '<Leader>l', '<cmd>!cargo clippy<CR>', { noremap = true })
-map('i', '<C-Space>', 'coc#refresh()',
+map('i', '<C-Space>', 'compe#complete()',
     { noremap = true, silent = true, expr = true })
 map('i', '<CR>', 'v:lua.completion_confirm()', { noremap = true, expr = true })
-map('n', '<Leader>cd', '<Plug>(coc-definition)', { silent = true })
-map('n', '<Leader>cD', '<Plug>(coc-references)', { silent = true })
-map('n', '<Leader>ct', '<Plug>(coc-type-definitions)', { silent = true })
+map('n', '<Leader>cd', '<cmd>lua vim.lsp.buf.definition()<CR>',
+    { noremap = true, silent = true })
+map('n', '<Leader>cD', '<cmd>lua vim.lsp.buf.references()<CR>',
+    { noremap = true, silent = true })
+map('n', '<Leader>ct', '<cmd>lua vim.lsp.buf.type_definition()<CR>',
+    { noremap = true, silent = true })
 map('n', 'K', '<cmd>call v:lua.show_documentation()<CR>',
     { noremap = true, silent = true })
-map('n', '<Leader>cr', '<Plug>(coc-rename)', {})
+map('n', '<Leader>cr', '<cmd>lua vim.lsp.buf.rename()<CR>',
+    { noremap = true, silent = true })
 map('', '<Space><Space>', ':', { noremap = true })
 map('i', '<Tab>', tc 'pumvisible() ? "<C-n>" : "<Tab>"',
     { noremap = true, expr = true })
@@ -146,7 +161,7 @@ function _G.show_documentation()
     if vim.bo.filetype == 'vim' or vim.bo.filetype == 'help' then
         cmd('help ' .. vim.fn.expand('<cword>'))
     else
-        vim.fn.CocAction 'doHover'
+        vim.lsp.buf.hover()
     end
 end
 
@@ -160,9 +175,5 @@ function _G.compile_and_run()
 end
 
 function _G.completion_confirm()
-    if vim.fn.pumvisible() ~= 0 then
-        return tc '<C-y>'
-    else
-        return npairs.check_break_line_char()
-    end
+    return vim.fn['compe#confirm'](npairs.check_break_line_char())
 end
