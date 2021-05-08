@@ -15,12 +15,15 @@ alias gd='git diff'
 alias gg='git grep'
 alias nvim='nvim -p' v='nvim'
 alias sudo='sudo '
+alias doas='doas '
 alias cr='cargo run'
 alias crr='cargo run --release'
 alias cb='cargo build'
 alias cbr='cargo build --release'
 alias c='cargo'
 alias pac='pacman'
+alias emerge='emerge -av' em='emerge'
+alias eq='equery' eu='euse' pq='portageq'
 
 alias maek='make' mkae='make' mkea='make' meak='make' meka='make' amke='make' \
 	amek='make' akme='make' akem='make' aemk='make' aekm='make' kmae='make' \
