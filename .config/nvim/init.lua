@@ -1,5 +1,6 @@
 local map = vim.api.nvim_set_keymap
 local cmd = vim.cmd
+local opt = vim.opt
 
 local function tc(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -45,41 +46,29 @@ highlight User2 guifg=#61afef guibg=#0b0b0b gui=bold
 highlight User3 guifg=#d19a66 guibg=#0b0b0b
 ]], false)
 
-vim.o.number = true
-vim.o.relativenumber = true
-vim.wo.number = true
-vim.wo.relativenumber = true
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-vim.bo.tabstop = 4
-vim.bo.shiftwidth = 4
-vim.o.scrolloff = 7
-vim.o.smartcase = true
-vim.o.hlsearch = false
-vim.o.splitbelow = true
-vim.o.splitright = true
-vim.o.textwidth = 80
-vim.bo.textwidth = 80
-vim.o.colorcolumn = '+1'
-vim.wo.colorcolumn = '+1'
-vim.o.cursorline = true
-vim.o.cursorcolumn = true
-vim.wo.cursorline = true
-vim.wo.cursorcolumn = true
-vim.o.list = true
-vim.wo.list = true
-vim.o.listchars = 'tab:¦ '
-vim.wo.listchars = 'tab:¦ '
-vim.o.formatoptions = string.gsub(vim.o.formatoptions, 't', '')
-vim.o.clipboard = 'unnamedplus'
-vim.o.ignorecase = true
-
-vim.o.hidden = true
-vim.o.backup = false
-vim.o.writebackup = false
-vim.o.shortmess = vim.o.shortmess .. 'cI'
-vim.o.signcolumn = 'no'
-vim.wo.signcolumn = 'no'
+opt.number = true
+opt.relativenumber = true
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.scrolloff = 7
+opt.smartcase = true
+opt.hlsearch = false
+opt.splitbelow = true
+opt.splitright = true
+opt.textwidth = 80
+opt.colorcolumn = '+1'
+opt.cursorline = true
+opt.cursorcolumn = true
+opt.list = true
+opt.listchars = 'tab:¦ '
+opt.formatoptions:remove 't'
+opt.clipboard = 'unnamedplus'
+opt.ignorecase = true
+opt.hidden = true
+opt.backup = false
+opt.writebackup = false
+opt.shortmess:append 'cI'
+opt.signcolumn = 'no'
 
 vim.api.nvim_exec([[
 highlight colorcolumn ctermbg=232 guibg=#080808
@@ -148,10 +137,12 @@ autocmd BufRead *.py			set expandtab tabstop=4 shiftwidth=4
 autocmd BufRead *.json			set tabstop=2
 autocmd BufRead *.scratch		setf python | set tabstop=4 shiftwidth=4
 autocmd BufWritePre *.rs,*.lua	Neoformat
+autocmd BufWritePre *.c,*.h	    Neoformat
 ]], false)
 
 function _G.show_documentation()
-    if vim.bo.filetype == 'vim' or vim.bo.filetype == 'help' then
+    local filetype = opt.filetype:get()
+    if filetype == 'vim' or filetype == 'help' then
         cmd('help ' .. vim.fn.expand('<cword>'))
     else
         vim.lsp.buf.hover()
