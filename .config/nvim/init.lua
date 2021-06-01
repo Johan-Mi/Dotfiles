@@ -61,7 +61,6 @@ opt.cursorline = true
 opt.cursorcolumn = true
 opt.list = true
 opt.listchars = 'tab:¦ '
-opt.formatoptions:remove 't'
 opt.clipboard = 'unnamedplus'
 opt.ignorecase = true
 opt.hidden = true
@@ -138,6 +137,8 @@ autocmd BufRead *.json			set tabstop=2
 autocmd BufRead *.scratch		setf python | set tabstop=4 shiftwidth=4
 autocmd BufWritePre *.rs,*.lua	Neoformat
 autocmd BufWritePre *.c,*.h	    Neoformat
+autocmd BufWritePost *.tex	    !pdflatex "%:p"
+autocmd FileType tex inoremap <buffer><expr><space> strpart(getline('.'), col('.') - 1, 1) == '{' ? "\<Right>" : "\<Space>"
 ]], false)
 
 function _G.show_documentation()
