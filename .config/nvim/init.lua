@@ -19,7 +19,7 @@ paq 'cespare/vim-toml'
 paq 'ron-rs/ron.vim'
 paq 'windwp/nvim-autopairs'
 
-vim.o.completeopt = 'menuone,noselect'
+opt.completeopt = 'menuone,noselect'
 
 require'compe'.setup {
     preselect = 'always',
@@ -36,9 +36,9 @@ lspconfig.rust_analyzer.setup {}
 
 cmd [[syntax on]]
 cmd [[colorscheme onedark]]
-vim.o.termguicolors = true
+opt.termguicolors = true
 
-vim.o.statusline =
+opt.statusline =
     [[ %<%1*%f%* %h%m%3*%{&readonly?'':''}%* %3l:%-2v %P%=%{&ff=='unix'?'LF':&ff=='dos'?'CRLF':'CR'}   %2*%{&ft}%* ]]
 vim.api.nvim_exec([[
 highlight User1 guibg=#0b0b0b gui=bold
