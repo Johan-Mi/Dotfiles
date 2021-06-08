@@ -18,5 +18,5 @@ do
 		rm -f "$statusfile"
 	fi
 
-	echo "$(echo "$status" | sed 's/,//;s/Discharging/🮦/;s/Not charging/🮮/;s/Charging/🮧/;s/Unknown/🭸/;s/Full/🮮/;s/ 0*/ /g;s/ :/ /g')${warn}${capacity}%"
+	echo "$status$warn$capacity%" | sed 's/,//;s/Discharging/🮦/;s/Not charging/🮮/;s/Charging/🮧/;s/Unknown/🭸/;s/Full/🮮/;s/ 0*/ /g;s/ :/ /g'
 done
