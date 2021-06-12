@@ -1,0 +1,8 @@
+\e{magenta}  _-----_      \e{reset}Host: \n
+\e{magenta} (       \\     \e{reset}TTY: \l
+\e{magenta} \\    0   \\    \e{reset}Arch: \m
+\e{magenta}  \\        )   \e{reset}Kernel: \r
+\e{magenta}  /      _/    \e{reset}Build: \v
+\e{magenta} (     _-
+\e{magenta} \\____-        \e{reset}\d \t
+
