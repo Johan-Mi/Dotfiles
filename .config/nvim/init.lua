@@ -133,9 +133,6 @@ map('i', '<S-Tab>', tc 'pumvisible() ? "<C-p>" : "<C-h>"', map_ne)
 
 vim.api.nvim_exec([[
 autocmd BufWritePost Xresources	!xrdb "%:p"
-autocmd BufRead *.py			set expandtab tabstop=4 shiftwidth=4
-autocmd BufRead *.json			set tabstop=2
-autocmd BufRead *.scratch		setf python | set tabstop=4 shiftwidth=4
 autocmd BufWritePre *.rs,*.lua	Neoformat
 autocmd BufWritePre *.c,*.h	    Neoformat
 autocmd BufWritePost *.tex	    !pdflatex "%:p"
