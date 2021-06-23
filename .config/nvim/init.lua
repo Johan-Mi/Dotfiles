@@ -70,7 +70,6 @@ opt.writebackup = false
 opt.shortmess:append 'cI'
 opt.signcolumn = 'no'
 opt.inccommand = 'nosplit'
-opt.exrc = true
 
 vim.api.nvim_exec([[
 highlight colorcolumn ctermbg=232 guibg=#080808
