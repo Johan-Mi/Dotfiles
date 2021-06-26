@@ -17,7 +17,6 @@ paq 'joshdick/onedark.vim'
 paq 'sbdchd/neoformat'
 paq 'cespare/vim-toml'
 paq 'ron-rs/ron.vim'
-paq 'ziglang/zig.vim'
 paq 'windwp/nvim-autopairs'
 
 opt.completeopt = 'menuone,noselect'
