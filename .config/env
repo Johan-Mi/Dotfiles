@@ -1,7 +1,5 @@
 #!/bin/sh
 
-PATH=$PATH:"$HOME/.local/bin":"$HOME/.local/share/cargo/bin"
-
 export EDITOR='nvim'
 export VISUAL='nvim'
 export TERMINAL='st'
