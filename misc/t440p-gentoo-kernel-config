@@ -1,8 +1,8 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 5.10.27-gentoo Kernel Configuration
+# Linux/x86 5.10.52-gentoo Kernel Configuration
 #
-CONFIG_CC_VERSION_TEXT="gcc (Gentoo 10.3.0 p1) 10.3.0"
+CONFIG_CC_VERSION_TEXT="gcc (Gentoo 10.3.0-r2 p3) 10.3.0"
 CONFIG_CC_IS_GCC=y
 CONFIG_GCC_VERSION=100300
 CONFIG_LD_VERSION=235020000
@@ -1449,6 +1449,7 @@ CONFIG_BLK_DEV_LOOP_MIN_COUNT=8
 #
 # CONFIG_BLK_DEV_NVME is not set
 # CONFIG_NVME_FC is not set
+# CONFIG_NVME_TCP is not set
 # end of NVME Support
 
 #
@@ -2565,6 +2566,7 @@ CONFIG_POWER_SUPPLY_HWMON=y
 # CONFIG_CHARGER_BQ2415X is not set
 # CONFIG_CHARGER_SMB347 is not set
 # CONFIG_BATTERY_GAUGE_LTC2941 is not set
+# CONFIG_BATTERY_RT5033 is not set
 # CONFIG_CHARGER_BD99954 is not set
 CONFIG_HWMON=y
 # CONFIG_HWMON_DEBUG_CHIP is not set
@@ -3703,7 +3705,6 @@ CONFIG_DMA_ACPI=y
 # CONFIG_INTEL_IDXD is not set
 # CONFIG_INTEL_IOATDMA is not set
 # CONFIG_PLX_DMA is not set
-# CONFIG_XILINX_ZYNQMP_DPDMA is not set
 # CONFIG_QCOM_HIDMA_MGMT is not set
 # CONFIG_QCOM_HIDMA is not set
 CONFIG_DW_DMAC_CORE=y
@@ -4887,4 +4888,14 @@ CONFIG_GENTOO_LINUX_PORTAGE=y
 CONFIG_GENTOO_LINUX_INIT_SCRIPT=y
 # CONFIG_GENTOO_LINUX_INIT_SYSTEMD is not set
 # end of Support for init systems, system and service managers
+
+#
+# Enable Kernel Self Protection Project Recommendations
+#
+
+#
+# Architecture Specific Self Protection Project Recommendations
+#
+# end of Architecture Specific Self Protection Project Recommendations
+# end of Enable Kernel Self Protection Project Recommendations
 # end of Gentoo Linux
