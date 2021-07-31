@@ -111,3 +111,4 @@ set previewer /usr/bin/pistol
 set promptfmt "\033[34;1m%w/\033[0m\033[1m%f\033[0m"
 set hidden
 set truncatechar "…"
+set autoquit
