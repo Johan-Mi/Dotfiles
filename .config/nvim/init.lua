@@ -46,6 +46,7 @@ highlight User2 guifg=#61afef guibg=#0b0b0b gui=bold
 highlight User3 guifg=#d19a66 guibg=#0b0b0b
 ]], false)
 
+vim.g.leave_my_cursor_position_alone = true
 opt.number = true
 opt.relativenumber = true
 opt.tabstop = 4
