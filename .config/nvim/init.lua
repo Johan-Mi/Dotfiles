@@ -47,6 +47,7 @@ vim.api.nvim_exec([[
 highlight User1 guibg=#0b0b0b gui=bold
 highlight User2 guifg=#61afef guibg=#0b0b0b gui=bold
 highlight User3 guifg=#d19a66 guibg=#0b0b0b
+highlight link lispParen Whitespace
 ]], false)
 
 vim.g.leave_my_cursor_position_alone = true
