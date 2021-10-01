@@ -27,7 +27,7 @@ require'compe'.setup {
 }
 
 local npairs = require 'nvim-autopairs'
-npairs.setup {}
+npairs.setup { enable_check_bracket_line = false }
 
 vim.g.neoformat_basic_format_retab = 0
 
