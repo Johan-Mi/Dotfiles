@@ -54,6 +54,7 @@ opt.tabstop = 4
 opt.shiftwidth = 4
 opt.scrolloff = 7
 opt.smartcase = true
+opt.wildignorecase = true
 opt.hlsearch = false
 opt.splitbelow = true
 opt.splitright = true
