@@ -18,6 +18,7 @@ paq 'sbdchd/neoformat'
 paq 'cespare/vim-toml'
 paq 'ron-rs/ron.vim'
 paq 'windwp/nvim-autopairs'
+paq 'Johan-Mi/scratch-vim'
 
 opt.completeopt = 'menuone,noselect'
 
