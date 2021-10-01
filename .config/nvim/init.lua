@@ -18,7 +18,6 @@ paq 'sbdchd/neoformat'
 paq 'cespare/vim-toml'
 paq 'ron-rs/ron.vim'
 paq 'windwp/nvim-autopairs'
-paq 'nvim-treesitter/nvim-treesitter'
 
 opt.completeopt = 'menuone,noselect'
 
@@ -34,8 +33,6 @@ vim.g.neoformat_basic_format_retab = 0
 
 local lspconfig = require 'lspconfig'
 lspconfig.rust_analyzer.setup {}
-
-require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 
 cmd [[syntax on]]
 cmd [[colorscheme onedark]]
