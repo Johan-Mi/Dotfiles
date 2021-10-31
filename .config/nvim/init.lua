@@ -13,6 +13,7 @@ paq { 'savq/paq-nvim', opt = true }
 paq 'neovim/nvim-lspconfig'
 paq 'hrsh7th/nvim-compe'
 paq 'tpope/vim-commentary'
+paq 'tpope/vim-surround'
 paq 'joshdick/onedark.vim'
 paq 'sbdchd/neoformat'
 paq 'cespare/vim-toml'
@@ -139,6 +140,7 @@ vim.api.nvim_exec([[
 autocmd BufWritePost Xresources	!xrdb "%:p"
 autocmd BufWritePre *.rs,*.lua	Neoformat
 autocmd BufWritePre *.hs        Neoformat
+autocmd BufWritePre *.scratch   normal gg=G``
 autocmd BufWritePost *.tex	    !pdflatex "%:p"
 autocmd FileType tex inoremap <buffer><expr><space> strpart(getline('.'), col('.') - 1, 1) == '{' ? "\<Right>" : "\<Space>"
 ]], false)
