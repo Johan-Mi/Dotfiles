@@ -6,20 +6,20 @@ local function tc(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
-cmd [[packadd paq-nvim]]
-local paq = require'paq-nvim'.paq
-paq { 'savq/paq-nvim', opt = true }
-
-paq 'neovim/nvim-lspconfig'
-paq 'hrsh7th/nvim-compe'
-paq 'tpope/vim-commentary'
-paq 'tpope/vim-surround'
-paq 'joshdick/onedark.vim'
-paq 'sbdchd/neoformat'
-paq 'cespare/vim-toml'
-paq 'ron-rs/ron.vim'
-paq 'windwp/nvim-autopairs'
-paq 'Johan-Mi/scratch-vim'
+require 'paq' {
+    'savq/paq-nvim',
+    'neovim/nvim-lspconfig',
+    'hrsh7th/nvim-compe',
+    'tpope/vim-commentary',
+    'tpope/vim-surround',
+    'joshdick/onedark.vim',
+    'sbdchd/neoformat',
+    'cespare/vim-toml',
+    'ron-rs/ron.vim',
+    'windwp/nvim-autopairs',
+    'Johan-Mi/scratch-vim',
+    'gpanders/nvim-parinfer',
+}
 
 opt.completeopt = 'menuone,noselect'
 
@@ -73,6 +73,8 @@ opt.backup = false
 opt.writebackup = false
 opt.shortmess:append 'cI'
 opt.signcolumn = 'no'
+
+vim.g.vim_parinfer_globs = { '*.lisp', '*.scratch' }
 
 vim.api.nvim_exec([[
 highlight colorcolumn ctermbg=232 guibg=#080808
@@ -142,6 +144,7 @@ autocmd BufWritePre *.hs        Neoformat
 autocmd BufWritePre *.scratch   normal gg=G``
 autocmd BufWritePost *.tex	    !pdflatex "%:p"
 autocmd FileType tex inoremap <buffer><expr><space> strpart(getline('.'), col('.') - 1, 1) == '{' ? "\<Right>" : "\<Space>"
+autocmd FileType scratch call parinfer#init()
 ]], false)
 
 function _G.show_documentation()

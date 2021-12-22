@@ -30,7 +30,7 @@ alias maek='make' mkae='make' mkea='make' meak='make' meka='make' amke='make' \
 	kmea='make' kame='make' kaem='make' kema='make' keam='make' emak='make' \
 	emka='make' eamk='make' eakm='make' ekma='make' ekam='make'
 
-bindkey -v '^?' backward-delete-char '^[[P' delete-char
+bindkey -v '^?' backward-delete-char '^[[P' delete-char '^H' backward-delete-char
 
 KEYTIMEOUT=5
 
