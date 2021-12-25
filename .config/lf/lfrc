@@ -34,8 +34,8 @@ map X !$f
 cmd open ${{
     case $(file --mime-type $f -b) in
         text/*) nvim $fx ;;
-		image/*) sxiv $fx ;;
-		application/pdf) zathura $fx ;;
+		image/*) sxiv $fx; sleep 0.05 ;;
+		application/pdf) zathura $fx; sleep 0.05 ;;
 		*) $EDITOR $fx ;;
     esac
 }}

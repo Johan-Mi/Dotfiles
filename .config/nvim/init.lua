@@ -6,18 +6,20 @@ local function tc(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
-cmd [[packadd paq-nvim]]
-local paq = require'paq-nvim'.paq
-paq { 'savq/paq-nvim', opt = true }
-
-paq 'neovim/nvim-lspconfig'
-paq 'hrsh7th/nvim-compe'
-paq 'tpope/vim-commentary'
-paq 'joshdick/onedark.vim'
-paq 'sbdchd/neoformat'
-paq 'cespare/vim-toml'
-paq 'ron-rs/ron.vim'
-paq 'windwp/nvim-autopairs'
+require 'paq' {
+    'savq/paq-nvim',
+    'neovim/nvim-lspconfig',
+    'hrsh7th/nvim-compe',
+    'tpope/vim-commentary',
+    'tpope/vim-surround',
+    'joshdick/onedark.vim',
+    'sbdchd/neoformat',
+    'cespare/vim-toml',
+    'ron-rs/ron.vim',
+    'windwp/nvim-autopairs',
+    'Johan-Mi/scratch-vim',
+    'gpanders/nvim-parinfer',
+}
 
 opt.completeopt = 'menuone,noselect'
 
@@ -27,7 +29,7 @@ require'compe'.setup {
 }
 
 local npairs = require 'nvim-autopairs'
-npairs.setup {}
+npairs.setup { enable_check_bracket_line = false }
 
 vim.g.neoformat_basic_format_retab = 0
 
@@ -44,14 +46,17 @@ vim.api.nvim_exec([[
 highlight User1 guibg=#0b0b0b gui=bold
 highlight User2 guifg=#61afef guibg=#0b0b0b gui=bold
 highlight User3 guifg=#d19a66 guibg=#0b0b0b
+highlight link lispParen Whitespace
 ]], false)
 
+vim.g.leave_my_cursor_position_alone = true
 opt.number = true
 opt.relativenumber = true
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.scrolloff = 7
 opt.smartcase = true
+opt.wildignorecase = true
 opt.hlsearch = false
 opt.splitbelow = true
 opt.splitright = true
@@ -68,7 +73,8 @@ opt.backup = false
 opt.writebackup = false
 opt.shortmess:append 'cI'
 opt.signcolumn = 'no'
-opt.inccommand = 'nosplit'
+
+vim.g.vim_parinfer_globs = { '*.lisp', '*.scratch' }
 
 vim.api.nvim_exec([[
 highlight colorcolumn ctermbg=232 guibg=#080808
@@ -134,8 +140,11 @@ map('i', '<S-Tab>', tc 'pumvisible() ? "<C-p>" : "<C-h>"', map_ne)
 vim.api.nvim_exec([[
 autocmd BufWritePost Xresources	!xrdb "%:p"
 autocmd BufWritePre *.rs,*.lua	Neoformat
+autocmd BufWritePre *.hs        Neoformat
+autocmd BufWritePre *.scratch   normal gg=G``
 autocmd BufWritePost *.tex	    !pdflatex "%:p"
 autocmd FileType tex inoremap <buffer><expr><space> strpart(getline('.'), col('.') - 1, 1) == '{' ? "\<Right>" : "\<Space>"
+autocmd FileType scratch call parinfer#init()
 ]], false)
 
 function _G.show_documentation()
