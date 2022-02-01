@@ -42,12 +42,12 @@ opt.termguicolors = true
 
 opt.statusline =
     [[ %<%1*%f%* %h%m%3*%{&readonly?'':''}%* %3l:%-2v %P%=%{&ff=='unix'?'LF':&ff=='dos'?'CRLF':'CR'}   %2*%{&ft}%* ]]
-vim.api.nvim_exec([[
+cmd [[
 highlight User1 guibg=#0b0b0b gui=bold
 highlight User2 guifg=#61afef guibg=#0b0b0b gui=bold
 highlight User3 guifg=#d19a66 guibg=#0b0b0b
 highlight link lispParen Whitespace
-]], false)
+]]
 
 vim.g.leave_my_cursor_position_alone = true
 opt.number = true
@@ -76,7 +76,7 @@ opt.signcolumn = 'no'
 
 vim.g.vim_parinfer_globs = { '*.lisp', '*.scratch' }
 
-vim.api.nvim_exec([[
+cmd [[
 highlight colorcolumn ctermbg=232 guibg=#080808
 highlight CursorLine ctermbg=233 guibg=#0e0e0e
 highlight CursorColumn ctermbg=233 guibg=#0e0e0e
@@ -84,7 +84,7 @@ highlight CursorLineNr ctermbg=233 guibg=#0e0e0e
 highlight WhiteSpace ctermfg=234 guifg=#303030
 highlight StatusLine guibg=#0b0b0b
 highlight Pmenu guibg=#202020
-]], false)
+]]
 
 vim.g.mapleader = ' '
 
@@ -137,7 +137,7 @@ map('', '<Space><Space>', ':', map_n)
 map('i', '<Tab>', tc 'pumvisible() ? "<C-n>" : "<Tab>"', map_ne)
 map('i', '<S-Tab>', tc 'pumvisible() ? "<C-p>" : "<C-h>"', map_ne)
 
-vim.api.nvim_exec([[
+cmd [[
 autocmd BufWritePost Xresources	!xrdb "%:p"
 autocmd BufWritePre *.rs,*.lua	Neoformat
 autocmd BufWritePre *.hs        Neoformat
@@ -145,7 +145,7 @@ autocmd BufWritePre *.scratch   normal gg=G``
 autocmd BufWritePost *.tex	    !pdflatex "%:p"
 autocmd FileType tex inoremap <buffer><expr><space> strpart(getline('.'), col('.') - 1, 1) == '{' ? "\<Right>" : "\<Space>"
 autocmd FileType scratch call parinfer#init()
-]], false)
+]]
 
 function _G.show_documentation()
     local filetype = opt.filetype:get()
