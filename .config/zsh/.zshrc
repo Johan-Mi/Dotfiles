@@ -10,9 +10,7 @@ autoload -Uz compinit && compinit -i
 
 alias ls='ls -1Av --color=auto' sl='ls' l='ls'
 alias ka='killall'
-alias gs='git status'
-alias gd='git diff'
-alias gg='git grep'
+alias gs='git status' gd='git diff' gg='git grep' gc='git checkout'
 alias nvim='nvim -p' v='nvim'
 alias sudo='sudo '
 alias doas='doas '
