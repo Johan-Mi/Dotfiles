@@ -14,7 +14,6 @@ require 'paq' {
     'tpope/vim-surround',
     'joshdick/onedark.vim',
     'sbdchd/neoformat',
-    'cespare/vim-toml',
     'ron-rs/ron.vim',
     'windwp/nvim-autopairs',
     'Johan-Mi/scratch-vim',
