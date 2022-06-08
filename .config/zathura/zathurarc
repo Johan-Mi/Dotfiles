@@ -8,7 +8,7 @@ map J zoom out
 map i recolor
 map p print
 
-set font "fira mono 10"
+set font "Iosevka Term SS05 10"
 set recolor-keephue true
 set recolor true
 set completion-bg "#0e0e0e"
