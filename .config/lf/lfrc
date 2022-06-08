@@ -33,7 +33,7 @@ map X !$f
 # text files and a file opener for the rest.
 cmd open ${{
     case $(file --mime-type $f -b) in
-        text/*) nvim $fx ;;
+        text/*) hx $fx ;;
 		image/*) sxiv $fx; sleep 0.1 ;;
 		application/pdf) zathura $fx; sleep 0.05 ;;
 		video/*) mpv $fx; sleep 0.05 ;;
