@@ -31,6 +31,7 @@ alias maek='make' mkae='make' mkea='make' meak='make' meka='make' amke='make' \
 
 bindkey -v '^?' backward-delete-char '^[[P' delete-char '^H' backward-delete-char
 bindkey -s '^z' '^u^lfg^m'
+bindkey '^r' history-incremental-search-backward
 
 KEYTIMEOUT=5
 
