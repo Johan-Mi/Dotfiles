@@ -8,32 +8,25 @@ end
 
 require 'paq' {
     'savq/paq-nvim',
-    'neovim/nvim-lspconfig',
     'hrsh7th/nvim-compe',
     'tpope/vim-commentary',
     'tpope/vim-surround',
     'joshdick/onedark.vim',
     'sbdchd/neoformat',
-    'ron-rs/ron.vim',
     'windwp/nvim-autopairs',
-    'Johan-Mi/scratch-vim',
-    'gpanders/nvim-parinfer',
 }
 
 opt.completeopt = 'menuone,noselect'
 
 require'compe'.setup {
     preselect = 'always',
-    source = { path = true, buffer = true, nvim_lsp = true, nvim_lua = true },
+    source = { path = true, buffer = true, nvim_lua = true },
 }
 
 local npairs = require 'nvim-autopairs'
 npairs.setup { enable_check_bracket_line = false }
 
 vim.g.neoformat_basic_format_retab = 0
-
-local lspconfig = require 'lspconfig'
-lspconfig.rust_analyzer.setup {}
 
 cmd [[syntax on]]
 cmd [[colorscheme onedark]]
@@ -72,8 +65,6 @@ opt.backup = false
 opt.writebackup = false
 opt.shortmess:append 'cI'
 opt.signcolumn = 'no'
-
-vim.g.vim_parinfer_globs = { '*.lisp', '*.scratch' }
 
 cmd [[
 highlight colorcolumn ctermbg=232 guibg=#080808
@@ -126,15 +117,9 @@ map('n', '<Leader>e', ':edit ', map_n)
 map('n', '<Leader>gg', '<cmd>execute "!git grep" expand("<cword>")<cr>', map_n)
 map('n', '<Leader>uw', 'dwf>xF<x', map_n)
 map('n', '<Leader>uW', 'dwf>xF<r&', map_n)
-map('n', '<Leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', map_ns)
 map('n', '<Leader>l', '<cmd>!cargo clippy<CR>', map_n)
 map('i', '<C-Space>', 'compe#complete()', map_nse)
 map('i', '<CR>', 'v:lua.completion_confirm()', map_ne)
-map('n', '<Leader>cd', '<cmd>lua vim.lsp.buf.definition()<CR>', map_ns)
-map('n', '<Leader>cD', '<cmd>lua vim.lsp.buf.references()<CR>', map_ns)
-map('n', '<Leader>ct', '<cmd>lua vim.lsp.buf.type_definition()<CR>', map_ns)
-map('n', 'K', '<cmd>call v:lua.show_documentation()<CR>', map_ns)
-map('n', '<Leader>cr', '<cmd>lua vim.lsp.buf.rename()<CR>', map_ns)
 map('', '<Space><Space>', ':', map_n)
 map('i', '<Tab>', tc 'pumvisible() ? "<C-n>" : "<Tab>"', map_ne)
 map('i', '<S-Tab>', tc 'pumvisible() ? "<C-p>" : "<C-h>"', map_ne)
@@ -146,17 +131,7 @@ autocmd BufWritePre *.hs        Neoformat
 autocmd BufWritePre *.scratch   normal gg=G``
 autocmd BufWritePost *.tex	    !pdflatex "%:p"
 autocmd FileType tex inoremap <buffer><expr><space> strpart(getline('.'), col('.') - 1, 1) == '{' ? "\<Right>" : "\<Space>"
-autocmd FileType scratch call parinfer#init()
 ]]
-
-function _G.show_documentation()
-    local filetype = opt.filetype:get()
-    if filetype == 'vim' or filetype == 'help' then
-        cmd('help ' .. vim.fn.expand('<cword>'))
-    else
-        vim.lsp.buf.hover()
-    end
-end
 
 function _G.compile_and_run()
     cmd [[silent !cargo locate-project]]
