@@ -2,8 +2,6 @@ stty -ixon
 
 set -J -B
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 zstyle ':completion:*' completer _expand _complete _ignored
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 autoload -Uz compinit && compinit -i
@@ -52,6 +50,8 @@ precmd() {
 }
 
 PS1='%F{black}%K{blue} %~ %F{blue}%k%f%k '
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -z $DISPLAY ] \
 	&& [ $(tty) = /dev/tty1 ] \
