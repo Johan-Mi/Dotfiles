@@ -1,6 +1,6 @@
 stty -ixon
 
-set -J -B
+set -J -B -g
 
 zstyle ':completion:*' completer _expand _complete _ignored
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
