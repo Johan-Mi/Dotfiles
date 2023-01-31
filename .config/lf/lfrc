@@ -86,6 +86,8 @@ map r push :open-with<space>
 map R rename
 map i $pistol $f | less -R
 map S $strip -s $f
+map <c-j> :updir; down; open
+map <c-k> :updir; up; open
 
 map gr cd /
 map gus cd /usr/share/
