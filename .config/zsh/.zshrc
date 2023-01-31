@@ -21,6 +21,7 @@ alias c='cargo'
 alias pac='pacman'
 alias emerge='emerge -av' em='emerge'
 alias eq='equery' eu='euse' pq='portageq'
+alias info='info --vi-keys'
 
 alias maek='make' mkae='make' mkea='make' meak='make' meka='make' amke='make' \
 	amek='make' akme='make' akem='make' aemk='make' aekm='make' kmae='make' \
