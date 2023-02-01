@@ -2,7 +2,7 @@
 *.alpha: 1
 
 !! Set a default font and font size as below:
-*.font: Iosevka Term SS05-11
+*.font: Iosevka Term SS05-14
 
 ! Custom
 *.foreground:    #EEEEEE
