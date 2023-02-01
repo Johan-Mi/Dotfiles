@@ -1,8 +1,10 @@
+Xft.dpi: 130
+
 !! Transparency (0-1):
 *.alpha: 1
 
 !! Set a default font and font size as below:
-*.font: Iosevka Term SS05-14
+*.font: Iosevka Term SS05-11.5
 
 ! Custom
 *.foreground:    #EEEEEE
