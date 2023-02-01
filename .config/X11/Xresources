@@ -1,4 +1,5 @@
 Xft.dpi: 130
+Xcursor.theme: Breeze_Snow
 
 !! Transparency (0-1):
 *.alpha: 1
