@@ -8,7 +8,7 @@ autoload -Uz compinit && compinit -i
 
 alias ls='ls -1Av --color=auto' sl='ls' l='ls'
 alias ka='killall'
-alias gs='git status' gd='git diff' gg='git grep' gc='git checkout'
+alias gs='git status' gd='git diff' gds='git diff --stat' gg='git grep' gc='git checkout' gcs='git clone --depth=1'
 alias nvim='nvim -p'
 alias v='hx'
 alias sudo='sudo '
@@ -22,14 +22,16 @@ alias pac='pacman'
 alias emerge='emerge -av' em='emerge'
 alias eq='equery' eu='euse' pq='portageq'
 alias info='info --vi-keys'
+alias clippy!='cargo clippy -- -W clippy::nursery -W clippy::pedantic'
 
 alias maek='make' mkae='make' mkea='make' meak='make' meka='make' amke='make' \
 	amek='make' akme='make' akem='make' aemk='make' aekm='make' kmae='make' \
 	kmea='make' kame='make' kaem='make' kema='make' keam='make' emak='make' \
 	emka='make' eamk='make' eakm='make' ekma='make' ekam='make'
 
-bindkey -v '^?' backward-delete-char '^[[P' delete-char '^H' backward-delete-char
-bindkey -s '^z' '^u fg^m ^m^l'
+bindkey -v '^?' backward-delete-char '^[[P' delete-char '^H' backward-delete-char '^W' backward-delete-word '^U' backward-kill-line
+bindkey -s '^z' '^[ddi fg^m ^m^l'
+bindkey -s '^a' '^[ddicd ~/Repos/'
 bindkey '^r' history-incremental-search-backward
 
 KEYTIMEOUT=5
