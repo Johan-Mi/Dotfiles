@@ -8,7 +8,7 @@ autoload -Uz compinit && compinit -i
 
 alias ls='ls -1Av --color=auto' sl='ls' l='ls'
 alias ka='killall'
-alias gs='git status' gd='git diff' gds='git diff --stat' gg='git grep' gc='git checkout' gcs='git clone --depth=1'
+alias gs='git status' gd='git diff' gds='git diff --stat' gdst='git diff --staged' gg='git grep' gc='git checkout' gcs='git clone --depth=1'
 alias nvim='nvim -p'
 alias v='hx'
 alias sudo='sudo '
