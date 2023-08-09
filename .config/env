@@ -37,4 +37,7 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;34m'
 
+export PISTOL_CHROMA_FORMATTER=terminal16m
+export PISTOL_CHROMA_STYLE=doom-one
+
 [ -f "$HOME/.config/env.personal" ] && . "$HOME/.config/env.personal"
