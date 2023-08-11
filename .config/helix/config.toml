@@ -1,0 +1,34 @@
+theme = "onedarkest"
+
+[editor]
+true-color = true
+completion-trigger-len = 1
+idle-timeout = 0
+scrolloff = 999
+soft-wrap.enable = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.lsp]
+goto-reference-include-declaration = false
+
+[keys.normal]
+A-e = "expand_selection"
+A-w = "shrink_selection"
+A-n = "select_prev_sibling"
+A-m = "select_next_sibling"
+A-space = "collapse_selection"
+g.q = ":reflow"
+"(" = ["goto_prev_diag", "code_action"]
+")" = ["goto_next_diag", "code_action"]
+
+[keys.normal.space]
+q.q = ":xa"
+q.Q = ":qa!"
+c.s = ":update"
+
+[keys.insert]
+C-space = "completion"

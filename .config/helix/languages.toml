@@ -1,0 +1,58 @@
+[language-server.rust-analyzer.config]
+diagnostics.disabled = ["inactive-code"]
+
+[[language]]
+name = "markdown"
+text-width = 80
+
+[[language]]
+name = "c"
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "scratchlisp"
+scope = "source.scratchlisp"
+injection-regex = "scratchlisp"
+roots = [".git"]
+file-types = ["scratch"]
+comment-token = ";"
+indent = { tab-width = 2, unit = "  " }
+
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+
+[[grammar]]
+name = "scratchlisp"
+source = { git = "https://github.com/Johan-Mi/tree-sitter-scratch-lisp", rev = "46c918631cbfdcfc0dda37760a2e48954da1fafa" }
+
+[[language]]
+name = "java"
+formatter = { command = "java-format", args = ["-a", "-"] }
+
+[[language]]
+name = "haskell"
+formatter.command = "hindent"
+auto-format = true
+
+[[language]]
+name = "javascript"
+formatter = { command = "prettier", args = ["--parser", "babel"] }
+auto-format = true
+
+[[language]]
+name = "spackel"
+scope = "source.spackel"
+injection-regex = "spackel"
+roots = [".git"]
+file-types = ["spkl"]
+comment-token = "#"
+indent = { tab-width = 2, unit = "  " }
+auto-format = true
+formatter = { command = "spackel", args = ["format"] }
+
+[[grammar]]
+name = "spackel"
+source.path = "/home/johanmi/Repos/spackel/tree-sitter-spackel"
