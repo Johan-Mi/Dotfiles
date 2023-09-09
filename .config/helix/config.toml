@@ -30,6 +30,8 @@ g.q = ":reflow"
 q.q = ":xa"
 q.Q = ":qa!"
 c.s = ":update"
+i = ":theme acme"
+o = ":theme onedarkest"
 
 [keys.insert]
 C-space = "completion"
