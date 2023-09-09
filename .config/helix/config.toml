@@ -6,6 +6,7 @@ completion-trigger-len = 1
 idle-timeout = 0
 scrolloff = 999
 soft-wrap.enable = true
+file-picker.git-exclude = false
 
 [editor.cursor-shape]
 insert = "bar"
