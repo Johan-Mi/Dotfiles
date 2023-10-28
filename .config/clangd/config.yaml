@@ -4,6 +4,7 @@ Diagnostics:
     Remove:
       - "altera*"
       - "bugprone-easily-swappable-parameters"
+      - "cert-dcl16-c"
       - "cert-msc*"
       - "concurrency-mt-unsafe"
       - "hicpp-uppercase-literal-suffix"
