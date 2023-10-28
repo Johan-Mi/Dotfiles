@@ -3,6 +3,7 @@ Diagnostics:
     Add: "*"
     Remove:
       - "altera*"
+      - "android*"
       - "bugprone-easily-swappable-parameters"
       - "cert-dcl16-c"
       - "cert-msc*"
