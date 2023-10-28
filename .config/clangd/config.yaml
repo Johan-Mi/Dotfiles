@@ -8,6 +8,6 @@ Diagnostics:
       - "cert-msc*"
       - "concurrency-mt-unsafe"
       - "hicpp-uppercase-literal-suffix"
-      - "llvmlibc-restrict-system-libc-headers"
+      - "llvmlibc-*"
       - "readability-identifier-length"
       - "readability-uppercase-literal-suffix"
