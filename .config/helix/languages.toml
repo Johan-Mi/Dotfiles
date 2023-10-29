@@ -41,18 +41,3 @@ auto-format = true
 name = "javascript"
 formatter = { command = "prettier", args = ["--parser", "babel"] }
 auto-format = true
-
-[[language]]
-name = "spackel"
-scope = "source.spackel"
-injection-regex = "spackel"
-roots = [".git"]
-file-types = ["spkl"]
-comment-token = "#"
-indent = { tab-width = 2, unit = "  " }
-auto-format = true
-formatter = { command = "spackel", args = ["format"] }
-
-[[grammar]]
-name = "spackel"
-source.path = "/home/johanmi/Repos/spackel/tree-sitter-spackel"
