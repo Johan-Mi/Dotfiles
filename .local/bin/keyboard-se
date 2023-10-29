@@ -1,6 +1,6 @@
 #!/bin/sh
 
 setxkbmap se nodeadkeys \
-	-option 'caps:swapescape' \
+	-option '' \
 	-option 'compose:prsc' \
 	-option 'compose:menu'
