@@ -31,8 +31,11 @@ q.q = ":xa"
 q.Q = ":qa!"
 c.s = ":update"
 "," = ":bc"
-i = ":theme acme"
-o = ":theme onedarkest"
+t.a = ":theme acme"
+t.i = ":theme onelight"
+t.o = ":theme onedarkest"
+t.m = ":theme modus_operandi"
+t.v = ":theme modus_vivendi"
 
 [keys.insert]
 C-space = "completion"
