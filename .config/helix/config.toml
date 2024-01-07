@@ -30,6 +30,7 @@ g.q = ":reflow"
 q.q = ":xa"
 q.Q = ":qa!"
 c.s = ":update"
+"," = ":bc"
 i = ":theme acme"
 o = ":theme onedarkest"
 
