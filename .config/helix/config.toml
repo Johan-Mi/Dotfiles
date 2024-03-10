@@ -17,6 +17,7 @@ select = "underline"
 goto-reference-include-declaration = false
 
 [keys.normal]
+X = ["extend_line_up", "extend_to_line_bounds"]
 A-e = "expand_selection"
 A-w = "shrink_selection"
 A-n = "select_prev_sibling"
