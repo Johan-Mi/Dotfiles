@@ -43,3 +43,24 @@ auto-format = true
 name = "javascript"
 formatter = { command = "prettier", args = ["--parser", "babel"] }
 auto-format = true
+
+[[language]]
+name = "sc2"
+scope = "source.sc2"
+injection-regex = "sc2"
+roots = [".git"]
+file-types = ["sc2"]
+comment-token = "#"
+indent = { tab-width = 4, unit = "    " }
+formatter = { command = "/home/johanmi/Repos/scratch-compiler-2/target/debug/scratch-compiler-2", args = ["format"] }
+auto-format = true
+
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+
+[[grammar]]
+name = "sc2"
+source = { path = "/home/johanmi/Repos/scratch-compiler-2/tree-sitter-sc2" }
