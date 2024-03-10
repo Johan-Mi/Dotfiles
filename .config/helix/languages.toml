@@ -17,6 +17,8 @@ roots = [".git"]
 file-types = ["scratch"]
 comment-token = ";"
 indent = { tab-width = 2, unit = "  " }
+formatter = { command = "scratch-compiler-exe", args = ["format"] }
+auto-format = true
 
 [language.auto-pairs]
 '(' = ')'
