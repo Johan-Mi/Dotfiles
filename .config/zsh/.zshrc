@@ -32,7 +32,9 @@ alias maek='make' mkae='make' mkea='make' meak='make' meka='make' amke='make' \
 	emka='make' eamk='make' eakm='make' ekma='make' ekam='make'
 
 bindkey -v '^?' backward-delete-char '^[[P' delete-char '^H' backward-delete-char '^W' backward-delete-word '^U' backward-kill-line
-bindkey -s '^z' '^[ddi fg^m ^m^l'
+zle-fg() { fg 2>/dev/null; zle-keymap-select }
+zle -N zle-fg
+bindkey '^z' zle-fg
 bindkey -s '^a' '^[ddicd ~/Repos/'
 bindkey -s '^g' '^[ddigit clone https://github.com/'
 bindkey '^r' history-incremental-search-backward
