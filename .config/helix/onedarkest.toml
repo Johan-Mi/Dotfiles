@@ -1,0 +1,8 @@
+inherits = "onedark"
+
+tag = { fg = "cyan" }
+"tag.error" = { fg = "red", modifiers = ["bold"] }
+"ui.virtual.whitespace" = { fg = "white" }
+
+[palette]
+black = "#020202"
