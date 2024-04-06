@@ -1,4 +1,0 @@
-#!/bin/sh
-
-r=$(dmenu -i -p 'r/' < ~/.local/share/subreddits) || exit
-exec $BROWSER --new-window "reddit.com/r/$r"
