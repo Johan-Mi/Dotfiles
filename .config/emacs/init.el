@@ -57,3 +57,6 @@
   :ensure t
   :config
   (load-theme 'doom-one t))
+
+(use-package magit
+  :ensure t)
