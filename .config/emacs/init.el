@@ -12,6 +12,9 @@
 (setq inhibit-startup-screen t)
 (setq inhibit-startup-echo-area-message "johanmi")
 
+(setq scroll-step 1)
+(setq scroll-margin 1000)
+
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
