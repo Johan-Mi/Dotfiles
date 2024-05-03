@@ -33,6 +33,13 @@
   :config
   (evil-collection-init))
 
+(use-package evil-god-state
+  :ensure t
+  :after evil
+  :config
+  (evil-define-key 'normal global-map " " 'evil-execute-in-god-state)
+  (evil-define-key 'god global-map [escape] 'evil-god-state-bail))
+
 (use-package which-key
   :ensure t
   :config
