@@ -3,6 +3,7 @@ theme = "onedarkest"
 [editor]
 true-color = true
 completion-trigger-len = 1
+completion-timeout = 0
 idle-timeout = 0
 scrolloff = 999
 soft-wrap.enable = true
