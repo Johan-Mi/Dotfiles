@@ -40,6 +40,7 @@ t.o = ":theme onedarkest"
 t.m = ":theme modus_operandi"
 t.v = ":theme modus_vivendi"
 t.p = ":theme pink"
+t.e = ":theme merionette"
 
 [keys.insert]
 C-space = "completion"
