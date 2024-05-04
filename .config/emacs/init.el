@@ -14,6 +14,7 @@
 
 (setq scroll-step 1)
 (setq scroll-margin 1000)
+(setq display-line-numbers-grow-only t)
 
 (setq read-file-name-completion-ignore-case t
       read-buffer-completion-ignore-case t
