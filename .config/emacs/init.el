@@ -67,4 +67,6 @@
   (load-theme 'doom-one t))
 
 (use-package magit
-  :ensure t)
+  :ensure t
+  :config
+  (magit-auto-revert-mode -1))
