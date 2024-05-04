@@ -19,6 +19,8 @@
       read-buffer-completion-ignore-case t
       completion-ignore-case t)
 
+(setopt use-short-answers t)
+
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
