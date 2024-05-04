@@ -33,6 +33,16 @@
   :config
   (evil-collection-init))
 
+(use-package general
+  :ensure t
+  :after evil
+  :config
+  (general-def 'normal 'override
+   "SPC f" 'find-file
+   "SPC s" 'save-buffer
+   "SPC ," 'evil-delete-buffer
+   "SPC m" 'magit-status))
+
 (use-package which-key
   :ensure t
   :config
