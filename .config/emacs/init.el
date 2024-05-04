@@ -42,11 +42,11 @@
   :after evil
   :config
   (general-def 'normal 'override
-   "SPC f" 'find-file
-   "SPC d" 'dired
-   "SPC s" 'save-buffer
-   "SPC ," 'evil-delete-buffer
-   "SPC m" 'magit-status))
+    "SPC f" 'find-file
+    "SPC d" 'dired
+    "SPC s" 'save-buffer
+    "SPC ," 'evil-delete-buffer
+    "SPC m" 'magit-status))
 
 (use-package which-key
   :ensure t
