@@ -15,6 +15,10 @@
 (setq scroll-step 1)
 (setq scroll-margin 1000)
 
+(setq read-file-name-completion-ignore-case t
+      read-buffer-completion-ignore-case t
+      completion-ignore-case t)
+
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
