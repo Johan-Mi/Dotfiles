@@ -63,7 +63,7 @@
 (use-package company
   :ensure t
   :config
-  (company-mode 1))
+  (global-company-mode 1))
 
 (use-package markdown-mode
   :ensure t)
