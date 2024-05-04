@@ -46,7 +46,9 @@
     "SPC d" 'dired
     "SPC s" 'save-buffer
     "SPC ," 'evil-delete-buffer
-    "SPC m" 'magit-status))
+    "SPC m" 'magit-status)
+  (general-def 'insert 'global
+    "C-SPC" 'company-complete))
 
 (use-package which-key
   :ensure t
@@ -57,6 +59,11 @@
   :ensure t
   :config
   (vertico-mode 1))
+
+(use-package company
+  :ensure t
+  :config
+  (company-mode 1))
 
 (use-package markdown-mode
   :ensure t)
