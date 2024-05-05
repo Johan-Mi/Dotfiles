@@ -85,7 +85,9 @@
   (global-company-mode 1)
   (company-tng-mode 1))
 
-(use-package markdown-mode)
+(use-package markdown-mode
+  :custom
+  (markdown-enable-math t))
 
 (use-package doom-themes
   :config
