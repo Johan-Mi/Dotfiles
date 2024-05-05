@@ -89,6 +89,11 @@
   :custom
   (markdown-enable-math t))
 
+(use-package rust-mode
+  :mode "\\.rs\\'"
+  :custom
+  (rust-format-on-save t))
+
 (use-package doom-themes
   :config
   (load-theme 'doom-one t))
