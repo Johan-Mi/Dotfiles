@@ -28,8 +28,10 @@
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
 
+(eval-and-compile
+  (setq use-package-always-ensure t))
+
 (use-package evil
-  :ensure t
   :custom
   (evil-want-keybinding nil)
   (evil-undo-system 'undo-redo)
@@ -37,13 +39,11 @@
   (evil-mode 1))
 
 (use-package evil-collection
-  :ensure t
   :after evil
   :config
   (evil-collection-init))
 
 (use-package general
-  :ensure t
   :after evil
   :config
   (general-def 'normal 'override
@@ -56,17 +56,14 @@
     "C-SPC" 'company-complete))
 
 (use-package which-key
-  :ensure t
   :config
   (which-key-mode 1))
 
 (use-package vertico
-  :ensure t
   :config
   (vertico-mode 1))
 
 (use-package company
-  :ensure t
   :custom
   (company-idle-delay 0)
   (company-minimum-prefix-length 1)
@@ -74,15 +71,12 @@
   (global-company-mode 1)
   (company-tng-mode 1))
 
-(use-package markdown-mode
-  :ensure t)
+(use-package markdown-mode)
 
 (use-package doom-themes
-  :ensure t
   :config
   (load-theme 'doom-one t))
 
 (use-package magit
-  :ensure t
   :config
   (magit-auto-revert-mode -1))
