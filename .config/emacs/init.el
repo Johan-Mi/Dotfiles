@@ -12,8 +12,8 @@
 (setq inhibit-startup-screen t)
 (setq inhibit-startup-echo-area-message "johanmi")
 
-(setq scroll-step 1)
 (setq scroll-margin 1000)
+(setq scroll-conservatively 1000)
 (setq display-line-numbers-grow-only t)
 
 (setq read-file-name-completion-ignore-case t
