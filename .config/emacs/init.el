@@ -27,6 +27,17 @@
 (setq message-log-max nil)
 (kill-buffer "*Messages*")
 
+(add-hook
+ 'emacs-lisp-mode-hook
+ (lambda ()
+   (add-hook
+    'before-save-hook
+    (lambda ()
+      (interactive)
+      (indent-region (point-min) (point-max)))
+    nil
+    'local)))
+
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
