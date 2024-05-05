@@ -28,9 +28,9 @@
 
 (use-package evil
   :ensure t
-  :init
-  (setq evil-want-keybinding nil)
-  (setq evil-undo-system 'undo-redo)
+  :custom
+  (evil-want-keybinding nil)
+  (evil-undo-system 'undo-redo)
   :config
   (evil-mode 1))
 
@@ -65,9 +65,10 @@
 
 (use-package company
   :ensure t
+  :custom
+  (company-idle-delay 0)
+  (company-minimum-prefix-length 1)
   :config
-  (setq company-idle-delay 0)
-  (setq company-minimum-prefix-length 1)
   (global-company-mode 1)
   (company-tng-mode 1))
 
