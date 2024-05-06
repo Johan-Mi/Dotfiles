@@ -13,6 +13,7 @@
 (setq custom-file "/dev/null")
 (setq inhibit-startup-screen t)
 (setq inhibit-startup-echo-area-message "johanmi")
+(setq native-comp-async-report-warnings-errors nil)
 
 (setq scroll-margin 1000)
 (setq scroll-conservatively 1000)
