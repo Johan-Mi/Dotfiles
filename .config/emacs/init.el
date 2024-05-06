@@ -68,7 +68,10 @@
     "SPC d" 'dired
     "SPC s" 'save-buffer
     "SPC ," 'evil-delete-buffer
-    "SPC m" 'magit-status)
+    "SPC m" 'magit-status
+    "SPC x" (general-key "C-x")
+    "SPC h" (general-key "C-h")
+    "SPC w" (general-key "C-w"))
   (general-def 'insert 'global
     "C-SPC" 'company-complete))
 
