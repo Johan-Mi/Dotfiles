@@ -64,3 +64,24 @@ auto-format = true
 [[grammar]]
 name = "sc2"
 source = { path = "/home/johanmi/Repos/scratch-compiler-2/tree-sitter-sc2" }
+
+[[language]]
+name = "lidl"
+scope = "source.lidl"
+injection-regex = "lidl"
+roots = [".git"]
+file-types = ["lidl"]
+comment-token = "#"
+indent = { tab-width = 4, unit = "    " }
+formatter = { command = "/home/johanmi/Repos/lidl/target/debug/lidl", args = ["format"] }
+auto-format = true
+
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+
+[[grammar]]
+name = "lidl"
+source = { path = "/home/johanmi/Repos/lidl/tree-sitter-lidl" }
