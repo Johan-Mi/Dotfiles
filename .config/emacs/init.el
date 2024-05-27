@@ -25,7 +25,8 @@
 
 (setopt use-short-answers t)
 
-(setq calc-display-trail nil)
+(setq calc-display-trail nil
+      calc-full-mode t)
 
 (setq message-log-max nil)
 (kill-buffer "*Messages*")
