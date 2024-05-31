@@ -93,6 +93,7 @@
   (company-tng-mode 1))
 
 (use-package markdown-mode
+  :mode "\\.\\(?:md\\|markdown\\|mkd\\|mdown\\|mkdn\\|mdwn\\)\\'"
   :custom
   (markdown-enable-math t))
 
