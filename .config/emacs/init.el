@@ -107,5 +107,6 @@
   (load-theme 'doom-one t))
 
 (use-package magit
+  :commands (magit magit-status)
   :config
   (magit-auto-revert-mode -1))
