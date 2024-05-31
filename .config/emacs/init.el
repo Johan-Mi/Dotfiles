@@ -8,27 +8,27 @@
 (global-auto-revert-mode 1)
 (electric-pair-mode 1)
 
-(setq make-backup-files nil)
-(setq auto-save-default nil)
-(setq custom-file "/dev/null")
-(setq inhibit-startup-screen t)
-(setq inhibit-startup-echo-area-message "johanmi")
-(setq native-comp-async-report-warnings-errors nil)
+(setopt make-backup-files nil)
+(setopt auto-save-default nil)
+(setopt custom-file "/dev/null")
+(setopt inhibit-startup-screen t)
+(setopt inhibit-startup-echo-area-message "johanmi")
+(setopt native-comp-async-report-warnings-errors nil)
 
-(setq scroll-margin 1000)
-(setq scroll-conservatively 1000)
-(setq display-line-numbers-grow-only t)
+(setopt scroll-margin 1000)
+(setopt scroll-conservatively 1000)
+(setopt display-line-numbers-grow-only t)
 
-(setq read-file-name-completion-ignore-case t
-      read-buffer-completion-ignore-case t
-      completion-ignore-case t)
+(setopt read-file-name-completion-ignore-case t
+	read-buffer-completion-ignore-case t
+	completion-ignore-case t)
 
 (setopt use-short-answers t)
 
-(setq calc-display-trail nil
-      calc-full-mode t)
+(setopt calc-display-trail nil
+	calc-full-mode t)
 
-(setq message-log-max nil)
+(setopt message-log-max nil)
 (kill-buffer "*Messages*")
 
 (add-hook
