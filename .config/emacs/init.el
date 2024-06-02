@@ -28,6 +28,8 @@
 (setopt calc-display-trail nil
 	calc-full-mode t)
 
+(setopt dired-kill-when-opening-new-dired-buffer t)
+
 (setopt message-log-max nil)
 (kill-buffer "*Messages*")
 
