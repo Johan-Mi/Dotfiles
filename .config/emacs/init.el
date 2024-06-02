@@ -63,10 +63,15 @@
   :config
   (evil-collection-init))
 
+(defun open-config ()
+  (interactive)
+  (find-file user-init-file))
+
 (use-package general
   :after evil
   :config
   (general-def 'normal 'override
+    "SPC c" 'open-config
     "SPC f" 'find-file
     "SPC d" 'dired
     "SPC s" 'save-buffer
