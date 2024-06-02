@@ -14,6 +14,7 @@
 (setopt inhibit-startup-screen t)
 (setopt inhibit-startup-echo-area-message "johanmi")
 (setopt native-comp-async-report-warnings-errors nil)
+(setopt transient-save-history nil)
 
 (setopt scroll-margin 1000)
 (setopt scroll-conservatively 1000)
