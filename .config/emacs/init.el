@@ -34,6 +34,9 @@
 (setopt message-log-max nil)
 (kill-buffer "*Messages*")
 
+(setopt eglot-ignored-server-capabilities
+	'(:inlayHintProvider))
+
 (add-hook
  'emacs-lisp-mode-hook
  (lambda ()
