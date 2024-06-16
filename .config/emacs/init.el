@@ -19,6 +19,7 @@
 (setopt scroll-margin 1000)
 (setopt scroll-conservatively 1000)
 (setopt display-line-numbers-grow-only t)
+(setopt frame-resize-pixelwise t)
 
 (setopt read-file-name-completion-ignore-case t
 	read-buffer-completion-ignore-case t
