@@ -46,3 +46,8 @@
 #star-button-box {
     display: none !important;
 }
+
+
+notification[value="drmContentDisabled"]{
+    display:none !important;
+}
