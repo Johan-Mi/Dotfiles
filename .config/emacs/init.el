@@ -53,10 +53,8 @@
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
 
-(eval-and-compile
-  (setq use-package-always-ensure t))
-
 (use-package evil
+  :ensure t
   :custom
   (evil-want-keybinding nil)
   (evil-undo-system 'undo-redo)
@@ -64,6 +62,7 @@
   (evil-mode 1))
 
 (use-package evil-collection
+  :ensure t
   :after evil
   :config
   (evil-collection-init))
@@ -73,6 +72,7 @@
   (find-file user-init-file))
 
 (use-package general
+  :ensure t
   :after evil
   :config
   (general-def 'normal 'override
@@ -89,14 +89,17 @@
     "C-SPC" 'company-complete))
 
 (use-package which-key
+  :ensure t
   :config
   (which-key-mode 1))
 
 (use-package vertico
+  :ensure t
   :config
   (vertico-mode 1))
 
 (use-package company
+  :ensure t
   :custom
   (company-idle-delay 0)
   (company-minimum-prefix-length 1)
@@ -105,20 +108,24 @@
   (company-tng-mode 1))
 
 (use-package markdown-mode
+  :ensure t
   :mode "\\.\\(?:md\\|markdown\\|mkd\\|mdown\\|mkdn\\|mdwn\\)\\'"
   :custom
   (markdown-enable-math t))
 
 (use-package rust-mode
+  :ensure t
   :mode "\\.rs\\'"
   :custom
   (rust-format-on-save t))
 
 (use-package doom-themes
+  :ensure t
   :config
   (load-theme 'doom-one t))
 
 (use-package magit
+  :ensure t
   :commands (magit magit-status)
   :config
   (magit-auto-revert-mode -1))
