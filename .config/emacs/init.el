@@ -84,7 +84,9 @@
     "SPC m" 'magit-status
     "SPC x" (general-key "C-x")
     "SPC h" (general-key "C-h")
-    "SPC w" (general-key "C-w"))
+    "SPC w" (general-key "C-w")
+    "g h" 'beginning-of-line
+    "g l" 'end-of-line)
   (general-def 'insert 'global
     "C-SPC" 'company-complete))
 
