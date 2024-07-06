@@ -113,7 +113,8 @@
   :ensure t
   :mode "\\.\\(?:md\\|markdown\\|mkd\\|mdown\\|mkdn\\|mdwn\\)\\'"
   :custom
-  (markdown-enable-math t))
+  (markdown-enable-math t)
+  (markdown-fontify-code-block-natively t))
 
 (use-package rust-mode
   :ensure t
