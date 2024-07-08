@@ -128,7 +128,8 @@
 (use-package doom-themes
   :ensure t
   :config
-  (load-theme 'doom-one t))
+  (load-theme 'doom-one t)
+  (set-face-attribute 'default nil :background "#020202"))
 
 (use-package magit
   :ensure t
