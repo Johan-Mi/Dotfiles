@@ -116,6 +116,7 @@
   :custom
   (markdown-enable-math t)
   (markdown-fontify-code-blocks-natively t)
+  (markdown-hide-markup t)
   (markdown-list-indent-width 2))
 
 (use-package rust-mode
