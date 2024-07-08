@@ -115,7 +115,8 @@
   :mode "\\.\\(?:md\\|markdown\\|mkd\\|mdown\\|mkdn\\|mdwn\\)\\'"
   :custom
   (markdown-enable-math t)
-  (markdown-fontify-code-blocks-natively t))
+  (markdown-fontify-code-blocks-natively t)
+  (markdown-list-indent-width 2))
 
 (use-package rust-mode
   :ensure t
