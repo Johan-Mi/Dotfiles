@@ -4,6 +4,7 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (blink-cursor-mode -1)
+(line-number-mode -1)
 (global-display-line-numbers-mode 1)
 (global-auto-revert-mode 1)
 (electric-pair-mode 1)
@@ -58,6 +59,7 @@
   :custom
   (evil-want-keybinding nil)
   (evil-undo-system 'undo-redo)
+  (evil-mode-line-format nil)
   :config
   (evil-mode 1))
 
