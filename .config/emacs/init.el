@@ -21,6 +21,9 @@
 (setopt scroll-conservatively 1000)
 (setopt display-line-numbers-grow-only t)
 (setopt frame-resize-pixelwise t)
+(setopt custom-safe-themes
+	'(default
+	  "9f297216c88ca3f47e5f10f8bd884ab24ac5bc9d884f0f23589b0a46a608fe14")) ; doom-one-light
 
 (setopt read-file-name-completion-ignore-case t
 	read-buffer-completion-ignore-case t
