@@ -100,6 +100,7 @@ map gs cd /sys/
 map go cd ~/.config/
 map ge cd /etc/
 map gl cd /lib/
+map gv cd /var/
 map gxu cd /usr/share/X11/
 map gxo cd ~/.config/X11/
 
