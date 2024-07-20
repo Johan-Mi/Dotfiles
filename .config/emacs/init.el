@@ -12,7 +12,7 @@
 (setopt make-backup-files nil)
 (setopt auto-save-default nil)
 (setopt custom-file (expand-file-name "~/.config/emacs/custom.el"))
-(load custom-file)
+(load custom-file nil t)
 (setopt inhibit-startup-screen t)
 (setq inhibit-startup-echo-area-message "johanmi")
 (setopt native-comp-async-report-warnings-errors nil)
