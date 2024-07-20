@@ -14,7 +14,7 @@
 (setopt custom-file (expand-file-name "~/.config/emacs/custom.el"))
 (load custom-file)
 (setopt inhibit-startup-screen t)
-(setopt inhibit-startup-echo-area-message "johanmi")
+(setq inhibit-startup-echo-area-message "johanmi")
 (setopt native-comp-async-report-warnings-errors nil)
 (setopt transient-save-history nil)
 
