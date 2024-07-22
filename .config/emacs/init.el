@@ -143,3 +143,12 @@
   :commands (magit magit-status)
   :config
   (magit-auto-revert-mode -1))
+
+(use-package parinfer-rust-mode
+  :ensure t
+  :hook emacs-lisp-mode)
+
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (indent-tabs-mode -1)
+            (electric-pair-mode -1)))
