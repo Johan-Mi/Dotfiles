@@ -22,9 +22,6 @@
 (setopt scroll-conservatively 1000)
 (setopt display-line-numbers-grow-only t)
 (setopt frame-resize-pixelwise t)
-(setopt custom-safe-themes
-        '(default
-          "9f297216c88ca3f47e5f10f8bd884ab24ac5bc9d884f0f23589b0a46a608fe14")) ; doom-one-light
 
 (setopt read-file-name-completion-ignore-case t
         read-buffer-completion-ignore-case t
@@ -88,6 +85,8 @@
     "SPC s" 'save-buffer
     "SPC ," 'evil-delete-buffer
     "SPC m" 'magit-status
+    "SPC i" 'light-theme
+    "SPC o" 'dark-theme
     "SPC x" (general-key "C-x")
     "SPC h" (general-key "C-h")
     "SPC w" (general-key "C-w")
@@ -134,11 +133,26 @@
   (rust-mode-treesitter-derive t)
   (rust-format-on-save t))
 
+(defun set-theme (theme)
+  (dolist (theme custom-enabled-themes)
+    (disable-theme theme))
+  (if (memq theme custom-known-themes)
+      (enable-theme theme)
+    (load-theme theme t)))
+
+(defun light-theme ()
+  (interactive)
+  (set-theme 'doom-one-light))
+
+(defun dark-theme ()
+  (interactive)
+  (set-theme 'doom-one)
+  (set-face-attribute 'default nil :background "#020202"))
+
 (use-package doom-themes
   :ensure t
   :config
-  (load-theme 'doom-one t)
-  (set-face-attribute 'default nil :background "#020202"))
+  (dark-theme))
 
 (use-package magit
   :ensure t
