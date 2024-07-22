@@ -23,17 +23,17 @@
 (setopt display-line-numbers-grow-only t)
 (setopt frame-resize-pixelwise t)
 (setopt custom-safe-themes
-	'(default
-	  "9f297216c88ca3f47e5f10f8bd884ab24ac5bc9d884f0f23589b0a46a608fe14")) ; doom-one-light
+        '(default
+          "9f297216c88ca3f47e5f10f8bd884ab24ac5bc9d884f0f23589b0a46a608fe14")) ; doom-one-light
 
 (setopt read-file-name-completion-ignore-case t
-	read-buffer-completion-ignore-case t
-	completion-ignore-case t)
+        read-buffer-completion-ignore-case t
+        completion-ignore-case t)
 
 (setopt use-short-answers t)
 
 (setopt calc-display-trail nil
-	calc-full-mode t)
+        calc-full-mode t)
 
 (setopt dired-kill-when-opening-new-dired-buffer t)
 
@@ -41,7 +41,7 @@
 (kill-buffer "*Messages*")
 
 (setopt eglot-ignored-server-capabilities
-	'(:inlayHintProvider))
+        '(:inlayHintProvider))
 
 (add-hook
  'emacs-lisp-mode-hook
