@@ -93,7 +93,9 @@
     "SPC w" (general-key "C-w")
     "g h" 'beginning-of-line
     "g l" 'end-of-line
-    "g e" 'end-of-buffer)
+    "g e" 'end-of-buffer
+    "g n" 'next-buffer
+    "g p" 'previous-buffer)
   (general-def 'insert 'global
     "C-SPC" 'company-complete))
 
