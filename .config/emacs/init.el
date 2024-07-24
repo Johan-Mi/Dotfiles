@@ -5,6 +5,16 @@
              '("melpa" . "https://melpa.org/packages/") t)
 
 (use-package emacs
+  :hook
+  ((emacs-lisp-mode
+    . (lambda ()
+        (add-hook
+         'before-save-hook
+         (lambda ()
+           (interactive)
+           (indent-region (point-min) (point-max)))
+         nil
+         'local))))
   :custom
   (custom-file (expand-file-name "~/.config/emacs/custom.el"))
   (make-backup-files nil)
@@ -36,17 +46,7 @@
   (line-number-mode -1)
   (global-display-line-numbers-mode 1)
   (global-auto-revert-mode 1)
-  (electric-pair-mode 1)
-  (add-hook
-   'emacs-lisp-mode-hook
-   (lambda ()
-     (add-hook
-      'before-save-hook
-      (lambda ()
-        (interactive)
-        (indent-region (point-min) (point-max)))
-      nil
-      'local))))
+  (electric-pair-mode 1))
 
 (use-package evil
   :ensure t
