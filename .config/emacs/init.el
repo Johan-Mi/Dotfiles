@@ -120,7 +120,6 @@
 
 (use-package rust-mode
   :ensure t
-  :mode "\\.rs\\'"
   :custom
   (rust-mode-treesitter-derive t)
   (rust-format-on-save t))
