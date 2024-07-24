@@ -146,7 +146,7 @@
   (let ((hour (nth 2 (decode-time))))
     (if (<= 7 hour 16)
         (light-theme)
-      dark-theme)))
+      (dark-theme))))
 
 (use-package magit
   :ensure t
