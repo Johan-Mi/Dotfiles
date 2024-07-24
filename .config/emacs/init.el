@@ -152,7 +152,10 @@
 (use-package doom-themes
   :ensure t
   :config
-  (dark-theme))
+  (let ((hour (nth 2 (decode-time))))
+    (if (<= 7 hour 16)
+        (light-theme)
+      dark-theme)))
 
 (use-package magit
   :ensure t
