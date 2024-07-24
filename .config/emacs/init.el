@@ -158,9 +158,8 @@
 
 (use-package parinfer-rust-mode
   :ensure t
-  :hook emacs-lisp-mode)
-
-(add-hook 'emacs-lisp-mode-hook
-          (lambda ()
-            (indent-tabs-mode -1)
-            (electric-pair-mode -1)))
+  :hook ((emacs-lisp-mode
+          . (lambda ()
+              (indent-tabs-mode -1)
+              (electric-pair-local-mode -1)
+              (parinfer-rust-mode 1)))))
