@@ -1,59 +1,52 @@
 ;; -*- lexical-binding: t; -*-
 
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(blink-cursor-mode -1)
-(line-number-mode -1)
-(global-display-line-numbers-mode 1)
-(global-auto-revert-mode 1)
-(electric-pair-mode 1)
-
-(setopt make-backup-files nil)
-(setopt auto-save-default nil)
-(setopt custom-file (expand-file-name "~/.config/emacs/custom.el"))
-(load custom-file nil t)
-(setopt inhibit-startup-screen t)
-(setq inhibit-startup-echo-area-message "johanmi")
-(setopt native-comp-async-report-warnings-errors nil)
-(setopt transient-save-history nil)
-
-(setopt scroll-margin 1000)
-(setopt scroll-conservatively 1000)
-(setopt display-line-numbers-grow-only t)
-(setopt frame-resize-pixelwise t)
-
-(setopt read-file-name-completion-ignore-case t
-        read-buffer-completion-ignore-case t
-        completion-ignore-case t)
-
-(setopt use-short-answers t)
-
-(setopt calc-display-trail nil
-        calc-full-mode t)
-
-(setopt dired-kill-when-opening-new-dired-buffer t)
-
-(setopt message-log-max nil)
-(kill-buffer "*Messages*")
-
-(setopt eglot-ignored-server-capabilities
-        '(:inlayHintProvider))
-
-(add-hook
- 'emacs-lisp-mode-hook
- (lambda ()
-   (add-hook
-    'before-save-hook
-    (lambda ()
-      (interactive)
-      (indent-region (point-min) (point-max)))
-    nil
-    'local)))
-
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
+
+(use-package emacs
+  :custom
+  (custom-file (expand-file-name "~/.config/emacs/custom.el"))
+  (make-backup-files nil)
+  (auto-save-default nil)
+  (inhibit-startup-screen t)
+  (native-comp-async-report-warnings-errors nil)
+  (transient-save-history nil)
+  (scroll-margin 1000)
+  (scroll-conservatively 1000)
+  (display-line-numbers-grow-only t)
+  (frame-resize-pixelwise t)
+  (read-file-name-completion-ignore-case t)
+  (read-buffer-completion-ignore-case t)
+  (completion-ignore-case t)
+  (use-short-answers t)
+  (calc-display-trail nil)
+  (calc-full-mode t)
+  (eglot-ignored-server-capabilities '(:inlayHintProvider))
+  (dired-kill-when-opening-new-dired-buffer t)
+  (message-log-max nil)
+  :config
+  (load custom-file nil t)
+  (setq inhibit-startup-echo-area-message "johanmi")
+  (kill-buffer "*Messages*")
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+  (blink-cursor-mode -1)
+  (line-number-mode -1)
+  (global-display-line-numbers-mode 1)
+  (global-auto-revert-mode 1)
+  (electric-pair-mode 1)
+  (add-hook
+   'emacs-lisp-mode-hook
+   (lambda ()
+     (add-hook
+      'before-save-hook
+      (lambda ()
+        (interactive)
+        (indent-region (point-min) (point-max)))
+      nil
+      'local))))
 
 (use-package evil
   :ensure t
