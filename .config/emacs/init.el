@@ -76,7 +76,7 @@
     "SPC f" 'find-file
     "SPC d" 'dired
     "SPC s" 'save-buffer
-    "SPC ," 'evil-delete-buffer
+    "SPC ," 'kill-buffer-and-window
     "SPC m" 'magit-status
     "SPC i" 'light-theme
     "SPC o" 'dark-theme
