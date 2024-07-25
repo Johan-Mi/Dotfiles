@@ -30,8 +30,6 @@
   (read-buffer-completion-ignore-case t)
   (completion-ignore-case t)
   (use-short-answers t)
-  (calc-display-trail nil)
-  (calc-full-mode t)
   (eglot-ignored-server-capabilities '(:inlayHintProvider))
   (dired-kill-when-opening-new-dired-buffer t)
   (message-log-max nil)
@@ -46,7 +44,9 @@
   (line-number-mode -1)
   (global-display-line-numbers-mode 1)
   (global-auto-revert-mode 1)
-  (electric-pair-mode 1))
+  (electric-pair-mode 1)
+  (setopt calc-display-trail nil
+          calc-full-mode t))
 
 (use-package evil
   :ensure t
