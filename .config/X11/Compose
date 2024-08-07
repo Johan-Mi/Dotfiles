@@ -2,3 +2,4 @@ include "%L"
 
 <Multi_key> <p> <r> : "′"
 <Multi_key> <P> <r> : "ʺ"
+<Multi_key> <S> <T> <X> : "␂"
