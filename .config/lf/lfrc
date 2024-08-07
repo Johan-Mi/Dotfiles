@@ -97,7 +97,7 @@ map gui cd /usr/include/
 map guu cd /usr/
 map gb cd /bin/
 map gs cd /sys/
-map go cd ~/.config/
+map go cd /opt/
 map ge cd /etc/
 map gl cd /lib/
 map gv cd /var/
