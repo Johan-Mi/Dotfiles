@@ -31,6 +31,7 @@
   (completion-ignore-case t)
   (use-short-answers t)
   (eglot-ignored-server-capabilities '(:inlayHintProvider))
+  (eglot-events-buffer-size 0)
   (dired-kill-when-opening-new-dired-buffer t)
   (message-log-max nil)
   :config
