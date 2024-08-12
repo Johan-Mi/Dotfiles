@@ -27,6 +27,7 @@ A-space = "collapse_selection"
 g.q = ":reflow"
 "(" = ["goto_prev_diag", "code_action"]
 ")" = ["goto_next_diag", "code_action"]
+"\\" = "make_search_word_bounded"
 
 [keys.normal.space]
 q.q = ":xa"
