@@ -80,6 +80,7 @@
     "SPC m" 'magit-status
     "SPC i" 'light-theme
     "SPC o" 'dark-theme
+    "SPC a" 'eglot-code-actions
     "SPC x" (general-key "C-x")
     "SPC h" (general-key "C-h")
     "SPC w" (general-key "C-w")
