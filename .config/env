@@ -8,6 +8,7 @@ export IMAGE='sxiv'
 export READER='zathura'
 export QT_QPA_PLATFORMTHEME='qt5ct'
 export LESS='-x4 -R'
+export MANPATH="$HOME/.local/share/man:$MANPATH"
 
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
