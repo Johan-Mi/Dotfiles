@@ -55,6 +55,8 @@
   (evil-want-keybinding nil)
   (evil-undo-system 'undo-redo)
   (evil-mode-line-format nil)
+  (evil-move-beyond-eol t)
+  (evil-cross-lines t)
   :config
   (evil-mode 1))
 
