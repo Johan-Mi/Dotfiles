@@ -2,3 +2,7 @@ configuration {
     modes: "run";
     disable-history: true;
 }
+
+entry {
+    blink: false;
+}
